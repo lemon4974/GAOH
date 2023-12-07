@@ -11,6 +11,16 @@ export default function LoginForm() {
     isLogin: false,
     userName: '',
   });
+  const loginText = loginState.isLogin ? 'LOGOUT' : 'LOGIN';
+
+  const onChangeInputHandler = (e) => {
+    const text = e.target.value;
+    setInput(text);
+  };
+
+  const inputText = <input type="text" onChange={onChangeInputHandler} />;
+
+  const getUserName = window.localStorage.getItem('userName');
 
   // 로컬 스토리지에 유저 data 저장
   useEffect(() => {
@@ -22,18 +32,47 @@ export default function LoginForm() {
       });
 
       //   storedUserName()
-      console.log('loginstate', loginState);
+      // console.log('loginstate', loginState);
     }
     // console.log()
-  }, []);
-  console.log('loginstate >>', loginState);
+  }, []); // 의존성 배열 설정 [state.userName] 의존성 배열과의 차이?
+  // console.log('loginstate >>', loginState);
+
+  const onClickSubmitHandler = (e) => {
+    e.preventDefault();
+    if (!loginState.isLogin) {
+      // false 시 실행
+      window.localStorage.setItem('userName', input);
+      setLoginState({
+        isLogin: true,
+        userName: input,
+      });
+      // setUserName(input);
+      return;
+    }
+
+    localStorage.removeItem('userName');
+
+    setLoginState({
+      isLogin: false,
+      userName: '',
+    });
+  };
 
   return (
     <div>
-      <span>{loginState.userName}</span>
+      <span>
+        {loginState.isLogin ? (
+          <h2>안녕하세요 {loginState.userName}</h2>
+        ) : (
+          <h2>로그인 X </h2>
+        )}
+      </span>
       <form>
-        <input type="text" />
-        <button></button>
+        <input type="text" onChange={onChangeInputHandler} />
+        <button type="button" onClick={onClickSubmitHandler}>
+          {loginText}
+        </button>
       </form>
     </div>
   );
