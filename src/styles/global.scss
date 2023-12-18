@@ -9,6 +9,17 @@ $background: #fcf4e5;
 $red: #eb4d33;
 
 //글꼴
+// Bebas Kai 대체 font
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-// font-family: 'Bebas Neue', sans-serif;
 $font-Bebas-Neue: 'Bebas Neue', sans-serif;
+
+// Palm Caryon Drive 대체 font
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+$font-Sacramento: 'Sacramento', cursive;
+
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+$font-Grand-Hotel: 'Grand Hotel', cursive;
+
+// Georgia 대체 font
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital@0;1&display=swap');
+$font-Tinos: 'Tinos', serif;
