@@ -1,4 +1,23 @@
+@import 'global.scss';
+
 .header-div {
-  background-color: aliceblue;
+  background-color: $background;
   height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-link {
+  display: flex;
+  flex-direction: row;
+  .link {
+    margin: 0 10px;
+    font-family: $font-Bebas-Neue;
+  }
+}
+
+.logo {
+  margin: 0 15px;
+  font-family: $font-Bebas-Neue;
 }
