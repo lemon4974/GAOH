@@ -5,6 +5,8 @@ import axios from 'axios';
 import '../styles/home/home.scss';
 import MovieReel from '../components/Main/MovieReel';
 import Ticket from '../components/Main/Ticket';
+import About from '../components/Main/About';
+import Search from '../components/Main/Search';
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -42,10 +44,28 @@ export default function Home() {
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div>
-      <div className="home-title">The Golden Age of Hollywood</div>
-      <div className="home-subtitle">Film Festival</div>
+      <div className="wrapper">
+        <div className="home-title">The Golden Age Of Hollywood</div>
+        <div className="home-subtitle">Film Festival</div>
+      </div>
       <MovieReel />
-      {/* <Ticket /> */}
+
+      <div>
+        <Ticket />
+      </div>
+
+      <div className="wrapper">
+        <About />
+        <Search />
+        <div>search</div>
+      </div>
+      <div>film동영상</div>
+
+      <div className="wrapper">
+        <div>FAQ</div>
+        <div>nodemailer?</div>
+      </div>
+
       {/* <div style={{ height: '80vh' }}>
         {data &&
           data.results.map((person, index) => (
