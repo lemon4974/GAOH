@@ -4,31 +4,32 @@ import '../../styles/home/ticket.scss';
 
 export default function Ticket() {
   return (
-    <div>
-      <div class="ticket">
-        <div class="ticket-edge-top-left"></div>
-        <div class="ticket-edge-top-right"></div>
-        <div class="ticket-edge-bottom-left"></div>
-        <div class="ticket-edge-bottom-right"></div>
-        <div class="ticket-punches"></div>
-        <div class="ticket-punches-right"></div>
-        <div class="ticket-inner">
-          <div class="ticket-star">
-            <i class="fa fa-star-o"></i>
+    <div className="ticket-div">
+      {/* <div className="ticket">
+        <div className="ticket-edge-top-left"></div>
+        <div className="ticket-edge-top-right"></div>
+        <div className="ticket-edge-bottom-left"></div>
+        <div className="ticket-edge-bottom-right"></div>
+        <div className="ticket-punches"></div>
+        <div className="ticket-punches-right"></div>
+        <div className="ticket-inner">
+          <div className="ticket-star">
+            <i className="fa fa-star-o"></i>
           </div>
-          <div class="ticket-headline">SEARCH</div>
-          <div class="ticket-admit">
-            <span class="char">M</span>
-            <span class="char">O</span>
-            <span class="char">V</span>
-            <span class="char">I</span>
-            <span class="char">E</span>
-            <span class="char">S</span>
+          <div className="ticket-headline">SEARCH</div>
+          <div className="ticket-admit">
+            <span className="char">M</span>
+            <span className="char">O</span>
+            <span className="char">V</span>
+            <span className="char">I</span>
+            <span className="char">E</span>
+            <span className="char">S</span>
           </div>
-          {/* <div class="ticket-numbers">5482144</div>
-          <div class="ticket-numbers second">5482144</div> */}
+        
         </div>
-      </div>
+      </div> */}
+
+      <div className="ticket">Search for Movies</div>
     </div>
   );
 }
