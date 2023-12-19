@@ -1,0 +1,100 @@
+@import '../global.scss';
+
+.box {
+  height: 300px;
+  width: 300px;
+  background: #4caf50;
+  margin: 100px;
+  position: relative;
+}
+
+.box:before,
+.box:after {
+  content: 'ffff';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+.six:before,
+.six:after {
+  top: 10px;
+  left: 10px;
+}
+
+.six:before {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  //   z-index: -1;
+}
+
+.six:after {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  //   z-index: -1;
+}
+
+////////////////////
+button {
+  background: none;
+  border: 5px solid black;
+  padding: 1.5rem 3rem;
+  box-shadow: 5px 5px red, 10px 10px black, inset 5px 5px white,
+    inset 10px 10px black;
+  font-family: -system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  position: relative;
+  z-index: 10;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: black;
+    z-index: -1;
+  }
+  &::before {
+    top: 100%;
+    left: 5px;
+    height: 10px;
+    width: 5px;
+    z-index: -1;
+  }
+  &::after {
+    left: 100%;
+    top: 5px;
+    height: 5px;
+    width: 10px;
+    z-index: -1;
+  }
+}
+
+// body {
+//   padding: 4rem 2rem;
+//   text-align: center;
+// }
+
+// <!DOCTYPE html>
+// <html>
+// <head>
+//   <meta charset="utf-8">
+//   <meta name="viewport" content="width=device-width">
+//   <title>JS Bin</title>
+//   <style>
+//     button{
+//       box-shadow: 3px 3px;
+//       transition: position .5s;
+//     }
+//     button:active{
+//       box-shadow: 0px 0px;
+//       position: relative;
+//       top: 3px;
+//       left: 3px;
+//     }
+//   </style>
+// </head>
+// <body>
+// <button>버튼</button>
+// </body>
+// </html>
