@@ -1,0 +1,42 @@
+@import '../global.scss';
+
+.about-div {
+  margin: 50px 0;
+
+  .about-title {
+    font-family: $font-Bebas-Neue;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .about-content-flex {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .about-content {
+    font-family: $font-Tinos;
+    margin-bottom: 20px;
+  }
+
+  .about-link {
+    font-family: $font-Bebas-Neue;
+    color: $red;
+    font-size: 20px;
+    height: 100%;
+
+    display: flex;
+
+    span {
+      align-items: center;
+    }
+
+    img {
+      height: 36px;
+    }
+
+    margin-bottom: 30px;
+  }
+}
