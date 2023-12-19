@@ -2,7 +2,7 @@
 
 // 색상
 $grey: #222222;
-$black2: #000000;
+$black: #000000;
 
 $white: #ffffff;
 $background: #fcf4e5;
@@ -23,3 +23,10 @@ $font-Grand-Hotel: 'Grand Hotel', cursive;
 // Georgia 대체 font
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital@0;1&display=swap');
 $font-Tinos: 'Tinos', serif;
+
+.wrapper {
+  max-width: 1170px; // 부트스트랩은 1170px 사용. width 만 사용하게 되면 가로 스크롤 발생
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
