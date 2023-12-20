@@ -1,0 +1,11 @@
+@import '../global.scss';
+
+.search-result-title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.space-between {
+  justify-content: space-between;
+}
