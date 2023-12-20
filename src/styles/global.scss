@@ -30,3 +30,26 @@ $font-Tinos: 'Tinos', serif;
   padding-left: 32px;
   padding-right: 32px;
 }
+
+//공통 button CSS
+button {
+  box-shadow: 2px 2px $black;
+  transition: position 0.5s;
+  background-color: $red;
+  padding: 8px 20px;
+  border: none;
+  font-family: $font-Bebas-Neue;
+  color: $background;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+button:active {
+  box-shadow: 0px 0px;
+  position: relative;
+  text-decoration: none;
+  top: 2px;
+  left: 2px;
+}
