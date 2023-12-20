@@ -10,7 +10,7 @@ export default function Header() {
   // const loginInfo = useRecoilState(loginState);
   const [loginInfo, setLoginInfo] = useRecoilState(loginState);
   return (
-    <div>
+    <div className="wrapper">
       <div className="header-div">
         {/* {loginInfo.isLogin ? (
           <p>Logged in as {loginInfo.userName}</p>
