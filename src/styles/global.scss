@@ -27,8 +27,8 @@ $font-Tinos: 'Tinos', serif;
 .wrapper {
   max-width: 1170px; // 부트스트랩은 1170px 사용. width 만 사용하게 되면 가로 스크롤 발생
   margin: 0 auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 //공통 button CSS
@@ -40,6 +40,7 @@ button {
   border: none;
   font-family: $font-Bebas-Neue;
   color: $background;
+  cursor: pointer;
 }
 
 button:hover {
@@ -67,3 +68,26 @@ button:active {
   color: $black;
   margin: 0 10px;
 }
+
+//이미지 정사각형 자르기
+.img-wrapper {
+  position: relative;
+  width: 350px;
+  height: 300px;
+}
+
+.img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50, 50);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+// img :hover {
+//   filter: grayscale(0%);
+// }

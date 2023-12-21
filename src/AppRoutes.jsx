@@ -9,16 +9,20 @@ import MovieList from './pages/MovieList';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchResult from './pages/SearchResult';
+import Films from './pages/Films';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/movielist" element={<MovieList />} />
+        <Route path="/films" element={<Films />} />
+
         {/* <Route path="/reviewlist" element={<ReviewList />} /> */}
         <Route path="/searchresult" element={<SearchResult />} />
       </Routes>
