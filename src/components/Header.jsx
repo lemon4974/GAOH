@@ -28,7 +28,7 @@ export default function Header() {
             <div className="link">FILMS</div>
           </Link>
           {/* <div>ACTOR</div> */}
-          <Link to="searchresult">
+          <Link to="search">
             <div className="link">SEARCH</div>
           </Link>
           <Link to="login">

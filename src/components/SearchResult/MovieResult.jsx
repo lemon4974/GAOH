@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function MovieResult() {
+export default function MovieResult({ query }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      //query가 없다면 return
+      if (!query) return;
       try {
         const response = await axios.get(
-          'https://api.themoviedb.org/3/search/movie?query=frozen&include_adult=false&language=ko-KR&page=1',
+          `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+            query
+          )}&include_adult=false&language=ko-KR&page=1`,
           {
             headers: {
               accept: 'application/json',
@@ -28,7 +32,7 @@ export default function MovieResult() {
     };
 
     fetchData();
-  }, []);
+  }, [query]);
 
   console.log('data >>', data);
 

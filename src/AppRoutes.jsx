@@ -24,7 +24,7 @@ export default function AppRoutes() {
         <Route path="/films" element={<Films />} />
 
         {/* <Route path="/reviewlist" element={<ReviewList />} /> */}
-        <Route path="/searchresult" element={<SearchResult />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
 
       {/* <Footer /> */}
