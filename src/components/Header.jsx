@@ -1,5 +1,7 @@
 import React from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
+
 // import { loginState } from '../';
 import { loginState } from '../state/userNameState';
 
@@ -19,11 +21,19 @@ export default function Header() {
         )} */}
         <div className="logo">LOGO</div>
         <div className="detail-link">
-          <div className="link">MAIN</div>
-          <div className="link">FILMS</div>
+          <Link to="/">
+            <div className="link">MAIN</div>
+          </Link>
+          <Link to="films">
+            <div className="link">FILMS</div>
+          </Link>
           {/* <div>ACTOR</div> */}
-          <div className="link">SEARCH</div>
-          <div className="link">LOGIN</div>
+          <Link to="searchresult">
+            <div className="link">SEARCH</div>
+          </Link>
+          <Link to="login">
+            <div className="link">LOGIN</div>
+          </Link>
         </div>
 
         {/* 로고// 메인,검색  로그인or로그아웃 */}

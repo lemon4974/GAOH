@@ -11,6 +11,9 @@
 .detail-link {
   display: flex;
   flex-direction: row;
+  a {
+    color: $black;
+  }
   .link {
     margin: 0 10px;
     font-family: $font-Bebas-Neue;
