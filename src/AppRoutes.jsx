@@ -10,24 +10,31 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchResult from './pages/SearchResult';
 import Films from './pages/Films';
+import MovieDetail from './pages/MovieDetail';
+
+import '../src/styles/footerFixer.scss';
+import '../src/styles/footer.scss';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
+      <div className="all-wrapper">
+        <div className="content-wrapper">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/movielist" element={<MovieList />} />
+            <Route path="/films" element={<Films />} />
+            <Route path="/films/detail/:movieId" element={<MovieDetail />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/movielist" element={<MovieList />} />
-        <Route path="/films" element={<Films />} />
-
-        {/* <Route path="/reviewlist" element={<ReviewList />} /> */}
-        <Route path="/search" element={<SearchResult />} />
-      </Routes>
-
-      {/* <Footer /> */}
+            {/* <Route path="/reviewlist" element={<ReviewList />} /> */}
+            <Route path="/search" element={<SearchResult />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
