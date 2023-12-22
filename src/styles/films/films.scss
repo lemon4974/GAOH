@@ -81,6 +81,8 @@
   align-items: baseline;
   gap: 16px;
   margin-bottom: 30px;
+
+  font-family: $font-Tinos;
 }
 
 // 사진 밑 개별 text
@@ -95,12 +97,19 @@
   justify-content: space-between;
 
   margin: 4px 0;
+  .movie-title-p {
+    color: $black;
+  }
+
+  .more-span {
+    color: $red;
+  }
 }
 
 // 사진 grid 정렬
 .films-grids {
   display: grid;
-  height: 80vh;
+  // height: 80vh;
   grid-template-columns: repeat(3, 350px);
   // 반응형 900px 에서 repeat 2, 400px 에서 repeat 1
   justify-content: space-between;

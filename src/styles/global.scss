@@ -69,6 +69,13 @@ button:active {
   margin: 0 10px;
 }
 
+.title-content {
+  font-family: $font-Bebas-Neue;
+  font-size: 30px;
+  color: $black;
+  margin-bottom: 15px;
+}
+
 //이미지 정사각형 자르기
 .img-wrapper {
   position: relative;

@@ -1,0 +1,80 @@
+@import '../global.scss';
+
+.title-grids {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: $font-Bebas-Neue;
+
+  margin-bottom: 30px;
+
+  .title-grid-back {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+  }
+  .title-grid {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.movie-data-flex {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+
+  .movie-data-btn-flex {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    .movie-data-container {
+      width: 100%;
+      margin: 1px 14px;
+
+      .bottom-line-div {
+        border-bottom: 1px solid;
+        margin-bottom: 9px;
+
+        display: grid;
+        grid-template-columns: 2fr 10fr;
+        vertical-align: baseline;
+        .movie-data-type {
+          font-family: $font-Bebas-Neue;
+          vertical-align: baseline;
+          padding-top: 2px;
+        }
+        .movie-data {
+          font-family: $font-Tinos;
+          margin-right: 10px;
+          font-size: 0.9rem;
+          //   margin-bottom: 1px;
+          // background-color: aqua;
+        }
+      }
+    }
+    .movie-btn-flex {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      gap: 13px;
+
+      .oreo-btn {
+        background-color: $background;
+        color: $black;
+        border: 1px solid $black;
+        padding-right: 35px;
+        padding-left: 35px;
+      }
+    }
+  }
+}
+
+.content-div {
+  margin-bottom: 50px;
+}
