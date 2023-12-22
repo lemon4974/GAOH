@@ -12,7 +12,7 @@ export default function Header() {
   // const loginInfo = useRecoilState(loginState);
   const [loginInfo, setLoginInfo] = useRecoilState(loginState);
   return (
-    <div className="wrapper">
+    <header className="wrapper">
       <div className="header-div">
         {/* {loginInfo.isLogin ? (
           <p>Logged in as {loginInfo.userName}</p>
@@ -38,6 +38,6 @@ export default function Header() {
 
         {/* 로고// 메인,검색  로그인or로그아웃 */}
       </div>
-    </div>
+    </header>
   );
 }
