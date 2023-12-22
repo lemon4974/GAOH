@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Film() {
@@ -47,17 +48,22 @@ export default function Film() {
           data.results.map((movie, index) => (
             <div key={index} className="film-grid">
               <div className="img-wrapper">
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
-                  alt={movie.title}
-                />
+                <Link to={`/films/detail/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
+                    alt={movie.title}
+                  />
+                </Link>
               </div>
               <div className="movie-info movie-info-flex">
-                <p>{movie.title}</p>
+                <Link to={`/films/detail/${movie.id}`}>
+                  <p className="movie-title-p">{movie.title}</p>
+                </Link>
                 <div>
-                  <a href="">
-                    <span style={{ color: 'red' }}>more</span>
-                  </a>
+                  <Link to={`/films/detail/${movie.id}`}>
+                    <span className="more-span">more</span>
+                  </Link>
+
                   {/* <img src={'/svg/Arrow_Up_Right.svg'} alt="사진" /> */}
                 </div>
               </div>

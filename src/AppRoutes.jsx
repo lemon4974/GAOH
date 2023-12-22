@@ -14,6 +14,7 @@ import MovieDetail from './pages/MovieDetail';
 
 import '../src/styles/footerFixer.scss';
 import '../src/styles/footer.scss';
+import '../src/styles/global.scss';
 
 export default function AppRoutes() {
   return (
