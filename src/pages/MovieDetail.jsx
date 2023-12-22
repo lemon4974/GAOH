@@ -86,6 +86,7 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">photos</div>
+        sdf
         <ImageCarousel />
       </div>
 
