@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Film() {
   const [data, setData] = useState(null);
@@ -11,12 +11,12 @@ export default function Film() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=1953&region=US&sort_by=popularity.desc',
+          "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=1953&region=US&sort_by=popularity.desc",
           {
             headers: {
-              accept: 'application/json',
+              accept: "application/json",
               Authorization:
-                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM',
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
             },
           }
         );
@@ -31,7 +31,7 @@ export default function Film() {
     fetchData();
   }, []);
 
-  console.log('data >>', data);
+  console.log("data >>", data);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -50,7 +50,7 @@ export default function Film() {
               <div className="img-wrapper">
                 <Link to={`/films/detail/${movie.id}`}>
                   <img
-                    src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                     alt={movie.title}
                   />
                 </Link>
