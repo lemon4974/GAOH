@@ -1,11 +1,44 @@
-@import '../global.scss';
+@import "../global.scss";
 
 .search-result-title {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  margin-bottom: 30px;
 }
 
 .space-between {
   justify-content: space-between;
+}
+
+.one-movie-div {
+  padding: 10px 0;
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+
+  .date-div {
+    border-bottom: 1px solid $black;
+    font-family: $font-Bebas-Neue;
+    font-size: 30px;
+    color: $red;
+    margin-bottom: 5px;
+  }
+
+  .movie-search-data {
+    font-family: $font-Tinos;
+    margin-bottom: 5px;
+
+    .search-detail-title {
+      color: $grey;
+      opacity: 70%;
+    }
+  }
+
+  .movie-btn-flex {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
