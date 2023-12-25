@@ -14,6 +14,7 @@ export default function MovieDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
+      // console.log("movieId", movieId);
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
@@ -28,6 +29,7 @@ export default function MovieDetail() {
         );
         setData(response.data);
       } catch (error) {
+        console.error("Error fetching data:", error);
         setError(error);
       } finally {
         setLoading(false);
@@ -48,7 +50,7 @@ export default function MovieDetail() {
     <div className="wrapper">
       <div className="title-grids">
         <div className="title-grid-back">back</div>
-        <div className="title-1 title-grid">Breakfast at Tiffany's</div>
+        <div className="title-1 title-grid">{data && data.original_title}</div>
         <div></div>
       </div>
 
@@ -66,9 +68,17 @@ export default function MovieDetail() {
             <div className="bottom-line-div">
               <span className="movie-data-type">genre</span>
               <div>
-                <span className="movie-data">Comedy</span>
+                {data &&
+                  data.genres.map((genre, index) => (
+                    <span key={index} className="movie-data">
+                      {" "}
+                      {genre.name}
+                    </span>
+                  ))}
+
+                {/* <span className="movie-data">Comedy</span>
                 <span className="movie-data">Drama</span>
-                <span className="movie-data">Romance</span>
+                <span className="movie-data">Romance</span> */}
               </div>
             </div>
             <div className="bottom-line-div">
@@ -89,20 +99,22 @@ export default function MovieDetail() {
               <span className="movie-data-type">year</span>
               <div>
                 <span className="movie-data">
-                  {formatYear(data.release_date)}
+                  {data && formatYear(data.release_date)}
                 </span>
               </div>
             </div>
             <div className="bottom-line-div">
               <span className="movie-data-type">runtime</span>
               <div>
-                <span className="movie-data">{data.runtime} mins</span>
+                <span className="movie-data">{data && data.runtime} mins</span>
               </div>
             </div>
           </div>
           <div className="movie-btn-flex">
             <button className="oreo-btn">IMDB</button>
+            {/* <Link to=""> */}
             <button>YouTube</button>
+            {/* </Link> */}
           </div>
         </div>
       </div>
@@ -118,7 +130,7 @@ export default function MovieDetail() {
         commodi dolore accusantium ipsum aspernatur esse quae deleniti, eius
         excepturi et iusto qui non officia at molestiae facere dolores
         exercitationem? Earum, laboriosam? */}
-        {data.overview}
+        {data && data.overview}
       </div>
 
       <div className="content-div">
