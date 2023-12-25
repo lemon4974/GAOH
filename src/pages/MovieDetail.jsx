@@ -7,6 +7,8 @@ import ImageCarousel from "../components/MovieDetail/ImageCarousel";
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
+  const [actors, setActors] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -39,7 +41,35 @@ export default function MovieDetail() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchActors = async () => {
+      // console.log("movieId", movieId);
+      try {
+        const response = await axios.get(
+          // `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+          {
+            headers: {
+              accept: "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+            },
+          }
+        );
+        setActors(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchActors();
+  }, []);
+
   console.log("data >>", data);
+  console.log("actors >>", actors);
 
   const formatYear = (dateString) => {
     const options = { year: "numeric" };
@@ -66,7 +96,7 @@ export default function MovieDetail() {
         <div className="movie-data-btn-flex">
           <div className="movie-data-container">
             <div className="bottom-line-div">
-              <span className="movie-data-type">company</span>
+              <span className="movie-data-type">genre</span>
               <div>
                 {data &&
                   data.genres.map((genre, index) => (
@@ -91,9 +121,15 @@ export default function MovieDetail() {
             <div className="bottom-line-div">
               <span className="movie-data-type">stars</span>
               <div>
-                <span className="movie-data">Audrey Hepburn</span>
+                {actors &&
+                  actors.cast.slice(0, 3).map((actor, index) => (
+                    <span key={index} className="movie-data">
+                      {actor.name}
+                    </span>
+                  ))}
+                {/* <span className="movie-data">Audrey Hepburn</span>
                 <span className="movie-data">George Peppard</span>
-                <span className="movie-data">Patricia Neal</span>
+                <span className="movie-data">Patricia Neal</span> */}
               </div>
             </div>
             <div className="bottom-line-div">
@@ -122,15 +158,7 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">StoryLine</div>
-        {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. A, nihil
-        laborum soluta omnis eaque accusamus perferendis, reiciendis aut porro,
-        ab ex sit non neque. Magnam, corrupti nobis, molestiae harum consequatur
-        delectus doloremque nam labore quos id architecto neque modi porro
-        itaque et deleniti minus officiis reiciendis facilis, saepe voluptas. Ea
-        obcaecati dicta ipsam? Quia reprehenderit recusandae odit dignissimos
-        commodi dolore accusantium ipsum aspernatur esse quae deleniti, eius
-        excepturi et iusto qui non officia at molestiae facere dolores
-        exercitationem? Earum, laboriosam? */}
+
         {data && data.overview}
       </div>
 
