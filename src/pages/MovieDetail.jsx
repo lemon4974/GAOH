@@ -66,25 +66,26 @@ export default function MovieDetail() {
         <div className="movie-data-btn-flex">
           <div className="movie-data-container">
             <div className="bottom-line-div">
-              <span className="movie-data-type">genre</span>
+              <span className="movie-data-type">company</span>
               <div>
                 {data &&
                   data.genres.map((genre, index) => (
                     <span key={index} className="movie-data">
-                      {" "}
                       {genre.name}
                     </span>
                   ))}
-
-                {/* <span className="movie-data">Comedy</span>
-                <span className="movie-data">Drama</span>
-                <span className="movie-data">Romance</span> */}
               </div>
             </div>
             <div className="bottom-line-div">
-              <span className="movie-data-type">director</span>
+              <span className="movie-data-type">production</span>
               <div>
-                <span className="movie-data">Blake Edwards</span>
+                {data &&
+                  data.production_companies.map((company, index) => (
+                    <span key={index} className="movie-data">
+                      {company.name}
+                    </span>
+                  ))}
+                {/* <span className="movie-data">Blake Edwards</span> */}
               </div>
             </div>
             <div className="bottom-line-div">
