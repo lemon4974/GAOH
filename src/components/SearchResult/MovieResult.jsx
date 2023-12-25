@@ -63,13 +63,14 @@ export default function MovieResult({ query }) {
 
     fetchData();
   }, [query]);
+  
+  console.log("data >>", data);
 
   const formatDate = (dateString) => {
     const options = { day: "numeric", month: "short", year: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
-  console.log("data >>", data);
 
   return (
     <div>
