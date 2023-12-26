@@ -1,153 +1,46 @@
-// import React, { useState } from "react";
-// import { useTheme } from "@mui/material/styles";
-// import { Box, MobileStepper, Button } from "@mui/material";
-// import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-// import SwipeableViews from "react-swipeable-views";
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import MobileStepper from "@mui/material/MobileStepper";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import SwipeableViews from "react-swipeable-views";
+// import { autoPlay } from "react-swipeable-views-utils";
 
-// export const SwipeableMobileStepper = ({ itemsPerView }) => {
-//   const images = [
-//     {
-//       label: "San Francisco – Oakland Bay Bridge, United States",
-//       imgPath:
-//         "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-//     },
-//     {
-//       label: "Bird",
-//       imgPath:
-//         "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-//     },
-//     {
-//       label: "Bali, Indonesia",
-//       imgPath:
-//         "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
-//     },
-//     {
-//       label: "Goč, Serbia",
-//       imgPath:
-//         "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-//     },
-//   ];
-
-//   const theme = useTheme();
-//   const [activeStep, setActiveStep] = useState(0);
-//   const maxSteps = images.length ;
-
-//   const handleNext = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//   };
-
-//   const handleBack = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-//   };
-
-//   const handleStepChange = (step) => {
-//     setActiveStep(step);
-//   };
-
-//   return (
-//     <Box>
-//       <SwipeableViews
-//         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-//         index={activeStep}
-//         onChangeIndex={handleStepChange}
-//         enableMouseEvents
-//       >
-//         {[...Array(maxSteps)].map((_, index) => (
-//           <Box
-//             key={`step-${index}`}
-//             sx={{
-//               display: "flex",
-//               alignItems: "stretch",
-//               justifyContent: "space-evenly",
-//             }}
-//           >
-//             {images
-//               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
-//               .map((child, childIndex) => (
-//                 <Box sx={{ mx: 1 }} key={`step-${index}-${childIndex}`}>
-//                   {React.cloneElement(child)}
-//                 </Box>
-//               ))}
-//           </Box>
-//         ))}
-//       </SwipeableViews>
-//       <MobileStepper
-//         variant="dots"
-//         steps={3}
-//         position="static"
-//         activeStep={activeStep}
-//         nextButton={
-//           <Button
-//             size="small"
-//             onClick={handleNext}
-//             disabled={activeStep === maxSteps - 1}
-//           >
-//             Next
-//             {theme.direction === "rtl" ? (
-//               <KeyboardArrowLeft />
-//             ) : (
-//               <KeyboardArrowRight />
-//             )}
-//           </Button>
-//         }
-//         backButton={
-//           <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-//             {theme.direction === "rtl" ? (
-//               <KeyboardArrowRight />
-//             ) : (
-//               <KeyboardArrowLeft />
-//             )}
-//             Back
-//           </Button>
-//         }
-//       />
-//     </Box>
-//   );
-// };
-
-
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    label: "San Francisco – Oakland Bay Bridge, United States",
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
   },
   {
-    label: 'Bird',
+    label: "Bird",
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
   },
   {
-    label: 'Bali, Indonesia',
+    label: "Bali, Indonesia",
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
   },
   {
-    label: 'Goč, Serbia',
+    label: "Goč, Serbia",
     imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
   },
 ];
 
+const itemsPerView = 3; // Number of items per view
 
 export default function SwipeableMobileStepper() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+  const maxSteps = Math.ceil(images.length / 3);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -162,75 +55,76 @@ export default function SwipeableMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{images[activeStep].label}</Typography>
-      </Paper>
-      <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+    <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
+      <SwipeableViews
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 255,
-                  display: 'block',
-                  maxWidth: 400,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
+        {[...Array(maxSteps)].map((_, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              flexDirection: "row", 
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+
+            }}
+          >
+            {images
+              .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
+              .map((image, imgIndex) => (
+                <Box
+                  key={imgIndex}
+                  component="img"
+                  sx={{
+                    height: 255,
+                    display: "block",
+                    maxWidth: 400,
+                    overflow: "hidden",
+                    width: "100%",
+                  }}
+                  src={image.imgPath}
+                  alt={image.label}
+                />
+              ))}
           </div>
         ))}
-      </AutoPlaySwipeableViews>
+      </SwipeableViews>
       <MobileStepper
+        variant="dots"
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
+        // sx={{}}
         nextButton={
-          <Button
+          <div
             size="small"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
             Next
-            {theme.direction === 'rtl' ? (
+            {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
             ) : (
               <KeyboardArrowRight />
             )}
-          </Button>
+          </div>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? (
+          <div size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
               <KeyboardArrowLeft />
             )}
             Back
-          </Button>
+          </div>
         }
       />
-    </Box>
+    </div>
   );
 }
-
