@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function Film() {
+export default function Film({ year, filter }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ export default function Film() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=1953&region=US&sort_by=popularity.desc",
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=${year}&region=US&sort_by=${filter}`,
           {
             headers: {
               accept: "application/json",
@@ -29,9 +29,9 @@ export default function Film() {
     };
 
     fetchData();
-  }, []);
+  }, [year, filter]);
 
-  console.log("data >>", data);
+  console.log("film data >>", data);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

@@ -1,9 +1,24 @@
-import React from 'react';
-import Film from '../components/Films/Film';
+import React, { useState } from "react";
+import Film from "../components/Films/Film";
 
-import '../styles/films/films.scss';
+import "../styles/films/films.scss";
 
 export default function Films() {
+  // year 1927 부터 1969. option 태그용 data 생성
+  const years = Array.from({ length: 1969 - 1927 + 1 }, (_, i) => 1927 + i);
+  const [selectedYear, setSelectedYear] = useState("1953"); // Default year
+
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value);
+  };
+
+  // filter tag
+  const [filter, setFilter] = useState("popularity.desc");
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value)
+  }
+
   return (
     <div className="wrapper">
       <div className="title-div-flex">
@@ -27,19 +42,22 @@ export default function Films() {
         </div>
         <div>Sort by</div>
         <div>
-          <select name="" id="">
-            <option value="">Year</option>
-            <option value="">popular</option>
+          <select name="year" id="year-select" onChange={handleYearChange}>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </div>
         <div>
-          <select name="" id="">
-            <option value="">latest</option>
-            <option value="">popular</option>
+          <select name="filter" id="filter-select" onChange={handleFilterChange}>
+            <option value="popularity.desc">popular</option>
+            <option value="primary_release_date.desc">latest</option>
           </select>
         </div>
       </div>
-      <Film />
+      <Film year={selectedYear} filter={filter}/>
     </div>
   );
 }
