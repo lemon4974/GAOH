@@ -4,6 +4,9 @@ import axios from "axios";
 
 import "../styles/movieDetail/moviedetail.scss";
 import ImageCarousel from "../components/MovieDetail/ImageCarousel";
+// import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
+import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
+
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
@@ -85,7 +88,7 @@ export default function MovieDetail() {
       </div>
 
       <div className="movie-data-flex">
-        <p>Movie ID: {movieId}</p>
+        {/* <p>Movie ID: {movieId}</p> */}
         <div className="img-wrapper">
           <img
             src="https://i.ytimg.com/vi/Uqc9XutbOIU/maxresdefault.jpg"
@@ -172,6 +175,8 @@ export default function MovieDetail() {
         <div className="title-content">photos</div>
         sdf
         {/* <ImageCarousel /> */}
+        {/* <SwipeableMobileStepper /> */}
+        <SwipeableMobileStepper/>
       </div>
 
       <div className="content-div">
