@@ -172,10 +172,9 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">photos</div>
-        sdf
-        {/* <ImageCarousel /> */}
-        {/* <SwipeableMobileStepper /> */}
-        <SwipeableMobileStepper />
+    
+       
+        <SwipeableMobileStepper movieId={movieId} />
       </div>
 
       <div className="content-div">
