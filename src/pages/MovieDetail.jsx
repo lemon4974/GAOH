@@ -7,7 +7,6 @@ import ImageCarousel from "../components/MovieDetail/ImageCarousel";
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
 
-
 export default function MovieDetail() {
   const [data, setData] = useState(null);
   const [actors, setActors] = useState(null);
@@ -42,7 +41,7 @@ export default function MovieDetail() {
     };
 
     fetchData();
-  }, []);
+  }, [movieId]);
 
   useEffect(() => {
     const fetchActors = async () => {
@@ -69,10 +68,10 @@ export default function MovieDetail() {
     };
 
     fetchActors();
-  }, []);
+  }, [movieId]);
 
-  console.log("data >>", data);
-  console.log("actors >>", actors);
+  console.log("movie detail data >>", data);
+  console.log("movie detail actors >>", actors);
 
   const formatYear = (dateString) => {
     const options = { year: "numeric" };
@@ -176,7 +175,7 @@ export default function MovieDetail() {
         sdf
         {/* <ImageCarousel /> */}
         {/* <SwipeableMobileStepper /> */}
-        <SwipeableMobileStepper/>
+        <SwipeableMobileStepper />
       </div>
 
       <div className="content-div">

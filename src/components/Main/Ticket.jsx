@@ -1,11 +1,13 @@
-import React from 'react';
-
-import '../../styles/home/ticket.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../styles/home/ticket.scss";
 
 export default function Ticket() {
   return (
     <div className="ticket-div">
-      <div className="ticket">Search for Movies</div>
+      <Link to="films">
+        <div className="ticket">Search for Movies</div>
+      </Link>
     </div>
   );
 }
