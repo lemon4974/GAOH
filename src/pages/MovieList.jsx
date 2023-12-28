@@ -43,7 +43,7 @@ export default function MovieList() {
           <div key={index}>
             <p>Name: {person.name}</p>
             <img
-              src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+              src={`https://image.tmdb.org/t/p/original${person.profile_path}`}
               alt={person.name}
             />
           </div>

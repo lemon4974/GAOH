@@ -82,7 +82,7 @@ export default function MovieResult({ query }) {
             <div className="img-wrapper">
               <Link to={`/films/detail/${movie.id}`}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${
+                  src={`https://image.tmdb.org/t/p/original${
                     movie.backdrop_path || movie.poster_path
                   }`}
                   alt={movie.name}
