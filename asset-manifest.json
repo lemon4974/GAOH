@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/YellowNBlue/static/css/main.3ce936b1.css",
+    "main.js": "/YellowNBlue/static/js/main.751f6a7b.js",
+    "static/js/787.907cea6f.chunk.js": "/YellowNBlue/static/js/787.907cea6f.chunk.js",
+    "index.html": "/YellowNBlue/index.html",
+    "main.3ce936b1.css.map": "/YellowNBlue/static/css/main.3ce936b1.css.map",
+    "main.751f6a7b.js.map": "/YellowNBlue/static/js/main.751f6a7b.js.map",
+    "787.907cea6f.chunk.js.map": "/YellowNBlue/static/js/787.907cea6f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ce936b1.css",
+    "static/js/main.751f6a7b.js"
+  ]
+}
