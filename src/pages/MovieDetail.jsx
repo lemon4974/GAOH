@@ -6,6 +6,7 @@ import "../styles/movieDetail/moviedetail.scss";
 import ImageCarousel from "../components/MovieDetail/ImageCarousel";
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
+import SwipeableRecommendation from "../components/MovieDetail/SwipeableRecommendation";
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
@@ -172,13 +173,13 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">photos</div>
-    
-       
         <SwipeableMobileStepper movieId={movieId} />
       </div>
 
       <div className="content-div">
         <div className="title-content">you might also like</div>
+        {/* <SwipeableMobileStepper movieId={movieId} /> */}
+        <SwipeableRecommendation movieId={movieId} />
       </div>
 
       <div></div>

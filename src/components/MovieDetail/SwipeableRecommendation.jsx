@@ -12,17 +12,18 @@ import SwipeableViews from "react-swipeable-views";
 
 const itemsPerView = 2; // Number of items per view
 
-export default function SwipeableMobileStepper({ movieId }) {
+export default function SwipeableRecommendation({ movieId }) {
   // const { movieId } = useParams();
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
 
-  const [images, setImages] = useState(null);
+  const [recommendations, setRecommendations] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // 캐러셀 제어 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -36,11 +37,12 @@ export default function SwipeableMobileStepper({ movieId }) {
   };
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchRecommendations = async () => {
       // console.log("movieId", movieId);
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/images`,
+        //   `https://api.themoviedb.org/3/movie/${movieId}/images`,
+          `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`,
           {
             headers: {
               accept: "application/json",
@@ -49,7 +51,7 @@ export default function SwipeableMobileStepper({ movieId }) {
             },
           }
         );
-        setImages(response.data.backdrops);
+        setRecommendations(response.data.results);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -59,15 +61,17 @@ export default function SwipeableMobileStepper({ movieId }) {
       }
     };
 
-    fetchImages();
-  }, [movieId]);
+    fetchRecommendations();
+  }, []);
 
-  console.log(images);
+  console.log('recommendation',recommendations);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const maxSteps = Math.ceil(images.length / 2);
+  const maxSteps = Math.ceil(recommendations.length / 2);
   return (
+    // <div>hi</div>
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
       <SwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -86,21 +90,21 @@ export default function SwipeableMobileStepper({ movieId }) {
               width: "100%",
             }}
           >
-            {images
+            {recommendations
               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
-              .map((image, imgIndex) => (
+              .map((recommendation, imgIndex) => (
                 <Box
                   key={imgIndex}
                   component="img"
                   sx={{
-                    height: 255,
+                    height: 300,
                     display: "block",
                     maxWidth: 400,
                     overflow: "hidden",
                     width: "100%",
                   }}
-                  src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                  alt={`Image ${imgIndex}`}
+                  src={`https://image.tmdb.org/t/p/original${recommendation.backdrop_path}`}
+                  alt={recommendation.title}
                 />
               ))}
           </div>
