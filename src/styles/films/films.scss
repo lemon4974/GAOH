@@ -112,6 +112,12 @@
   // height: 80vh;
   grid-template-columns: repeat(3, 350px);
   // 반응형 900px 에서 repeat 2, 400px 에서 repeat 1
+  @include tablet {
+    grid-template-columns: repeat(2, 350px);
+  }
+  @include mobile {
+    grid-template-columns: repeat(1, 350px);
+  }
   justify-content: space-between;
   gap: 20px 5px;
 }

@@ -1,29 +1,10 @@
+//전역 변수
+@import './variables';
+
+//전역 미디어 쿼리
+@import './mixin';
+
 /* 전역 스타일 및 CSS/SCSS 모듈 */
-
-// 색상
-$grey: #222222;
-$black: #000000;
-
-$white: #ffffff;
-$background: #fcf4e5;
-$red: #eb4d33;
-
-//글꼴
-// Bebas Kai 대체 font
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-$font-Bebas-Neue: 'Bebas Neue', sans-serif;
-
-// Palm Canyon Drive 대체 font
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-$font-Sacramento: 'Sacramento', cursive;
-
-@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
-$font-Grand-Hotel: 'Grand Hotel', cursive;
-
-// Georgia 대체 font
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital@0;1&display=swap');
-$font-Tinos: 'Tinos', serif;
-
 .wrapper {
   max-width: 1170px; // 부트스트랩은 1170px 사용. width 만 사용하게 되면 가로 스크롤 발생
   margin: 0 auto;
