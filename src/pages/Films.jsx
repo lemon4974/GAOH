@@ -1,9 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Film from '../components/Films/Film';
 
 import '../styles/films/films.scss';
+import UseIntersectionObserver from '../hooks/useIntersectionObserver';
 
 export default function Films() {
+  // // request state
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+
+  // // ref
+  // const rootRef = useRef(null);
+  // const targetRef = useRef(null);
+
+  // useIntersectionObserver({
+  //   root: rootRef.current,
+  //   target: targetRef.current,
+  //   onIntersect: ([{ isIntersecting }]) => {
+  //     if (
+  //       isIntersecting &&
+  //       !loading &&
+  //       currentPage.current < totalPage.current
+  //     ) {
+  //       loadMoreImage();
+  //     }
+  //   },
+  // });
+
   // year 1927 부터 1969. option 태그용 data 생성
   const years = Array.from({ length: 1969 - 1927 + 1 }, (_, i) => 1927 + i);
   const [selectedYear, setSelectedYear] = useState('1953'); // Default year
@@ -62,6 +85,7 @@ export default function Films() {
         </div>
       </div>
       <Film year={selectedYear} filter={filter} />
+      <div></div>
     </div>
   );
 }

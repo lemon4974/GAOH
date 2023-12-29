@@ -65,22 +65,6 @@ export default function Home() {
         <div>FAQ</div>
         <div>nodemailer?</div>
       </div>
-
-      {/* <div style={{ height: '80vh' }}>
-        {data &&
-          data.results.map((person, index) => (
-            <div key={index}>
-              <p>Name: {person.id}</p>
-              <img
-                src={
-                  `https://image.tmdb.org/t/p/w500${person.backdrop_path}` ||
-                  `https://image.tmdb.org/t/p/w500${person.poster_path}`
-                }
-                alt={person.name}
-              />
-            </div>
-          ))}
-      </div> */}
     </div>
   );
 }

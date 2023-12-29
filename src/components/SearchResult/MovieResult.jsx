@@ -74,7 +74,6 @@ export default function MovieResult({ query }) {
 
   return (
     <div>
-      {/* <div>movie</div> */}
       {data &&
         data.results.map((movie, index) => (
           <div className="one-movie-div" key={index}>
