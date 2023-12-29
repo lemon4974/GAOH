@@ -53,7 +53,12 @@ export default function MovieResult({ query }) {
             },
           }
         );
-        setData(response.data);
+        const filteredMovies = response.data.results.filter((movie) => {
+          const releaseYear = new Date(movie.release_date).getFullYear();
+          return releaseYear >= 1927 && releaseYear <= 1969;
+        });
+
+        setData({ ...response.data, results: filteredMovies });
       } catch (error) {
         setError(error);
       } finally {
