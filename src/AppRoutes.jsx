@@ -15,6 +15,7 @@ import MovieDetail from './pages/MovieDetail';
 import '../src/styles/footerFixer.scss';
 import '../src/styles/footer.scss';
 import '../src/styles/global.scss';
+import Error from './pages/Error';
 
 export default function AppRoutes() {
   return (
@@ -32,6 +33,7 @@ export default function AppRoutes() {
 
             {/* <Route path="/reviewlist" element={<ReviewList />} /> */}
             <Route path="/search" element={<SearchResult />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </div>
         <Footer />

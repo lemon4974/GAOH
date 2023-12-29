@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default function Error() {
-  return <div>404</div>;
+  return (
+    <div className="wrapper">
+      <div>404</div>
+    </div>
+  );
 }
