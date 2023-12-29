@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-import "../styles/movieDetail/moviedetail.scss";
-import ImageCarousel from "../components/MovieDetail/ImageCarousel";
+import '../styles/movieDetail/moviedetail.scss';
+import ImageCarousel from '../components/MovieDetail/ImageCarousel';
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
-import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
-import SwipeableRecommendation from "../components/MovieDetail/SwipeableRecommendation";
+import SwipeableMobileStepper from '../components/MovieDetail/SwipeableMobileStepper';
+import SwipeableRecommendation from '../components/MovieDetail/SwipeableRecommendation';
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
@@ -17,6 +17,13 @@ export default function MovieDetail() {
 
   const { movieId } = useParams();
 
+  //Back 클릭시 뒤로 가기 위함
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1); // This will take the user to the previous page
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       // console.log("movieId", movieId);
@@ -26,15 +33,15 @@ export default function MovieDetail() {
           // "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=1953&region=US&sort_by=popularity.desc",
           {
             headers: {
-              accept: "application/json",
+              accept: 'application/json',
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM',
             },
           }
         );
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -53,15 +60,15 @@ export default function MovieDetail() {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
           {
             headers: {
-              accept: "application/json",
+              accept: 'application/json',
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM',
             },
           }
         );
         setActors(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -71,18 +78,20 @@ export default function MovieDetail() {
     fetchActors();
   }, [movieId]);
 
-  console.log("movie detail data >>", data);
-  console.log("movie detail actors >>", actors);
+  console.log('movie detail data >>', data);
+  console.log('movie detail actors >>', actors);
 
   const formatYear = (dateString) => {
-    const options = { year: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    const options = { year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
   return (
     <div className="wrapper">
       <div className="title-grids">
-        <div className="title-grid-back">back</div>
+        <div className="title-grid-back" onClick={handleBackClick}>
+          back
+        </div>
         <div className="title-1 title-grid">{data && data.original_title}</div>
         <div></div>
       </div>
@@ -93,7 +102,7 @@ export default function MovieDetail() {
           <img
             src="https://i.ytimg.com/vi/Uqc9XutbOIU/maxresdefault.jpg"
             alt="티파니에서 아침을 이미지"
-            style={{ filter: "grayscale(100%)" }}
+            style={{ filter: 'grayscale(100%)' }}
           />
         </div>
         <div className="movie-data-btn-flex">
