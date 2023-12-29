@@ -13,7 +13,11 @@ export default function SearchResult() {
     <div>
       <div className="wrapper">
         <div className="search-result-title space-between">
-          <div className="title-1">Search Result for "{query}"</div>
+          <div className="title-1">
+            {query
+              ? `Search Result for "${query}"`
+              : 'Click the Search icon to search!'}
+          </div>
           <div className="search-result-title">
             <div className="search-container">
               <form action="/search" method="get">
@@ -29,8 +33,8 @@ export default function SearchResult() {
                 </label>
               </form>
             </div>
-            <div className="title-2">latest</div>
-            <div className="title-2">popular</div>
+            {/* <div className="title-2">latest</div> */}
+            {/* <div className="title-2">popular</div> */}
           </div>
         </div>
         <MovieResult query={query} />
