@@ -41,6 +41,7 @@ export default function Film({ year, filter }) {
 
   console.log('film data >>', data);
   console.log('film page >>', page);
+  console.log('film year >>', year);
 
   const handleObserver = useCallback((entries) => {
     const target = entries[0];
@@ -67,10 +68,7 @@ export default function Film({ year, filter }) {
 
   return (
     <div>
-      {/* <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div> */}
+      
       <div className="films-grids">
         {/* //data가 없다면 표시할 div */}
         {data &&
