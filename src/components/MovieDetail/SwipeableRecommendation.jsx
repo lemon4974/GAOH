@@ -1,13 +1,16 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import axios from "axios";
+
+import "../../styles/movieDetail/swipeableRecommendation.scss";
 
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import ArrowForward from "@mui/icons-material/ArrowForward";
 import SwipeableViews from "react-swipeable-views";
 
 const itemsPerView = 2; // Number of items per view
@@ -23,7 +26,7 @@ export default function SwipeableRecommendation({ movieId }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 캐러셀 제어 
+  // 캐러셀 제어
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -41,7 +44,7 @@ export default function SwipeableRecommendation({ movieId }) {
       // console.log("movieId", movieId);
       try {
         const response = await axios.get(
-        //   `https://api.themoviedb.org/3/movie/${movieId}/images`,
+          //   `https://api.themoviedb.org/3/movie/${movieId}/images`,
           `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`,
           {
             headers: {
@@ -64,7 +67,7 @@ export default function SwipeableRecommendation({ movieId }) {
     fetchRecommendations();
   }, []);
 
-  console.log('recommendation',recommendations);
+  console.log("recommendation", recommendations);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -88,24 +91,42 @@ export default function SwipeableRecommendation({ movieId }) {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
+              gap: "10px",
             }}
           >
             {recommendations
               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
               .map((recommendation, imgIndex) => (
-                <Box
-                  key={imgIndex}
-                  component="img"
-                  sx={{
-                    height: 300,
-                    display: "block",
-                    maxWidth: 400,
-                    overflow: "hidden",
-                    width: "100%",
-                  }}
-                  src={`https://image.tmdb.org/t/p/original${recommendation.backdrop_path}`}
-                  alt={recommendation.title}
-                />
+                <div style={{ width: "calc(50% - 5px)" }}>
+                  <Link to={`/films/detail/${recommendation.id}`}>
+                    <Box
+                      key={imgIndex}
+                      component="img"
+                      className="image-hover-effect"
+                      sx={{
+                        height: 250,
+                        display: "block",
+                        maxWidth: 400,
+                        overflow: "hidden",
+                        width: "100%",
+                      }}
+                      src={`https://image.tmdb.org/t/p/original${recommendation.backdrop_path}`}
+                      alt={recommendation.title}
+                    />
+                  </Link>
+                  <div className="movie-info movie-info-flex">
+                    <Link to={`/films/detail/${recommendation.id}`}>
+                      <p className="movie-title-p">
+                        {recommendation.original_title}
+                      </p>
+                    </Link>
+                    <div>
+                      <Link to={`/films/detail/${recommendation.id}`}>
+                        <span className="more-span">more</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               ))}
           </div>
         ))}
@@ -125,20 +146,17 @@ export default function SwipeableRecommendation({ movieId }) {
             backgroundColor: "#eb4d33", // Color of the active dot
             border: "1px solid #fcf4e5",
           },
+          padding: "0",
         }}
         nextButton={
           <div
             size="small"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
-            style={{ color: "#eb4d33" }}
+            className="carousel-next-prev"
           >
             Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
+            {theme.direction === "rtl" ? <ArrowBack /> : <ArrowForward />}
           </div>
         }
         backButton={
@@ -146,14 +164,10 @@ export default function SwipeableRecommendation({ movieId }) {
             size="small"
             onClick={handleBack}
             disabled={activeStep === 0}
-            style={{ color: "#eb4d33" }}
+            className="carousel-next-prev"
           >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
+            {theme.direction === "rtl" ? <ArrowForward /> : <ArrowBack />}
+            prev
           </div>
         }
       />

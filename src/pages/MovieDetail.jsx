@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "../styles/movieDetail/moviedetail.scss";
-import ImageCarousel from "../components/MovieDetail/ImageCarousel";
+// import ImageCarousel from "../components/MovieDetail/ImageCarousel";
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableRecommendation from "../components/MovieDetail/SwipeableRecommendation";
@@ -193,7 +193,7 @@ export default function MovieDetail() {
 
       <div></div>
 
-      <div>MovieDetail</div>
+      {/* <div>MovieDetail</div> */}
       {/* Render your movie details here */}
     </div>
   );

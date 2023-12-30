@@ -1,0 +1,37 @@
+@import "../global.scss";
+
+.movie-info {
+  font-family: $font-Bebas-Neue;
+  font-size: 20px;
+
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 4px 0;
+  .movie-title-p {
+    color: $black;
+  }
+
+  .more-span {
+    color: $red;
+  }
+}
+
+.carousel-next-prev {
+  font-family: $font-Bebas-Neue;
+  font-size: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.image-hover-effect {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease; /* Optional: Smooth transition for the effect */
+}
+
+.image-hover-effect:hover {
+  filter: grayscale(0%);
+}

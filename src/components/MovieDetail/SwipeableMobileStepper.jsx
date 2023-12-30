@@ -1,13 +1,16 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import axios from "axios";
+
+import "../../styles/movieDetail/swipeableRecommendation.scss";
 
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import ArrowForward from "@mui/icons-material/ArrowForward";
 import SwipeableViews from "react-swipeable-views";
 
 const itemsPerView = 2; // Number of items per view
@@ -84,24 +87,28 @@ export default function SwipeableMobileStepper({ movieId }) {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
+              gap: "10px",
             }}
           >
             {images
               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
               .map((image, imgIndex) => (
-                <Box
-                  key={imgIndex}
-                  component="img"
-                  sx={{
-                    height: 255,
-                    display: "block",
-                    maxWidth: 400,
-                    overflow: "hidden",
-                    width: "100%",
-                  }}
-                  src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                  alt={`Image ${imgIndex}`}
-                />
+                <div style={{ width: "calc(50% - 5px)" }}>
+                  <Box
+                    key={imgIndex}
+                    component="img"
+                    className="image-hover-effect"
+                    sx={{
+                      height: 255,
+                      display: "block",
+                      maxWidth: 400,
+                      overflow: "hidden",
+                      width: "100%",
+                    }}
+                    src={`https://image.tmdb.org/t/p/original${image.file_path}`}
+                    alt={`Image ${imgIndex}`}
+                  />
+                </div>
               ))}
           </div>
         ))}
@@ -121,20 +128,18 @@ export default function SwipeableMobileStepper({ movieId }) {
             backgroundColor: "#eb4d33", // Color of the active dot
             border: "1px solid #fcf4e5",
           },
+          padding: "0",
+          marginTop: "5px",
         }}
         nextButton={
           <div
             size="small"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
-            style={{ color: "#eb4d33" }}
+            className="carousel-next-prev"
           >
             Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
+            {theme.direction === "rtl" ? <ArrowBack /> : <ArrowForward />}
           </div>
         }
         backButton={
@@ -142,13 +147,9 @@ export default function SwipeableMobileStepper({ movieId }) {
             size="small"
             onClick={handleBack}
             disabled={activeStep === 0}
-            style={{ color: "#eb4d33" }}
+            className="carousel-next-prev"
           >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
+            {theme.direction === "rtl" ? <ArrowForward /> : <ArrowBack />}
             Back
           </div>
         }
