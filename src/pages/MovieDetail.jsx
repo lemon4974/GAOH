@@ -7,6 +7,7 @@ import "../styles/movieDetail/moviedetail.scss";
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
 import SwipeableRecommendation from "../components/MovieDetail/SwipeableRecommendation";
+import DetailVideo from "../components/MovieDetail/DetailVideo";
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
@@ -78,8 +79,8 @@ export default function MovieDetail() {
     fetchActors();
   }, [movieId]);
 
-  console.log("movie detail data >>", data);
-  console.log("movie detail actors >>", actors);
+  // console.log("movie detail data >>", data);
+  // console.log("movie detail actors >>", actors);
 
   const formatYear = (dateString) => {
     const options = { year: "numeric" };
@@ -100,8 +101,10 @@ export default function MovieDetail() {
         {/* <p>Movie ID: {movieId}</p> */}
         <div className="img-wrapper">
           <img
-            src={`https://image.tmdb.org/t/p/original${data && data.backdrop_path}`}
-            alt="티파니에서 아침을 이미지"
+            src={`https://image.tmdb.org/t/p/original${
+              data && data.backdrop_path
+            }`}
+            alt={`${data && data.original_title} 이미지`}
             style={{ filter: "grayscale(100%)" }}
           />
         </div>
@@ -176,6 +179,7 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">videos</div>
+        <DetailVideo movieId={movieId}/>
         <video src=""></video>
         <video src=""></video>
       </div>

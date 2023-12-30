@@ -25,9 +25,15 @@
 }
 
 .movie-data-flex {
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
+  display: grid;
+  
+  grid-template-columns: 1fr 1fr;
   margin-bottom: 50px;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 
   .movie-data-btn-flex {
     display: flex;
