@@ -1,19 +1,22 @@
-import React, { useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import { loginState } from '../';
-import { loginState } from "../state/userNameState";
+import { loginState } from '../state/userNameState';
 
-import "../styles/header.scss";
-import { OriginalState, SnowState, modeState } from "../state/theme";
+import '../styles/header.scss';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import MovieCreationIcon from '@mui/icons-material/MovieCreation';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import { OriginalState, SnowState, modeState } from '../state/theme';
 
 export default function Header() {
   // const user = useRecoil
   // const loginInfo = useRecoilState(loginState);
   // const [loginInfo, setLoginInfo] = useRecoilState(loginState);
 
-  const [divName, setDivName] = useState("snow");
+  const [divName, setDivName] = useState('snow');
   const [Theme, setTheme] = useRecoilState(modeState);
 
   const originalMode = useRecoilValue(OriginalState);
@@ -24,7 +27,7 @@ export default function Header() {
   };
 
   const current = useRecoilValue(modeState);
-  // const 
+  // const
 
   return (
     <header className="wrapper">
@@ -34,7 +37,12 @@ export default function Header() {
         ) : (
           <p>Not logged in</p>
         )} */}
-        <div className="logo">LOGO</div>
+        <div className="logo">
+          <LocalMoviesIcon />
+          {/* <MovieCreationIcon /> */}
+          {/* <TheaterComedyIcon /> */}
+          <div>GAFF</div>
+        </div>
         <div className="detail-link">
           <Link to="/">
             <div className="link">MAIN</div>
@@ -47,7 +55,9 @@ export default function Header() {
             <div className="link">SEARCH</div>
           </Link>
           {/* <Link to="login"> */}
-          <div className="link" onClick={toggle}>Theme</div>
+          <div className="link" onClick={toggle}>
+            Theme
+          </div>
           {/* </Link> */}
         </div>
 
