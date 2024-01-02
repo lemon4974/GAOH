@@ -1,5 +1,9 @@
 @import '../styles/global.scss';
 
+#footer-color {
+  background-color: black;
+}
+
 .footer-div {
   // display: block;
   // position: absolute;
@@ -8,14 +12,120 @@
   width: 100%;
   // transform: translateY(-100%);
   background-color: black;
+  // color: white;
   height: 300px;
+  @include mobile {
+    height: 100%;
+  }
+
   // position: relative;
   // transform: translateY(0%);
   border-top: 1px solid $black;
-
+  padding: 30px 20px;
   // display: flex;
   // align-items: center;
   // justify-content: center;
+
+  .Icon {
+    background-color: $black;
+    color: $white;
+  }
+  // .mobile-bg-color {
+  //   @include mobile {
+  //     width: 100%;
+  //     background-color: $black;
+  //   }
+  // }
+  .mobile-footer-center {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  .title-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    @include mobile {
+      // display: none;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .website-title {
+      font-family: $font-Grand-Hotel;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  .logo {
+    // margin: 0 15px;
+    font-family: $font-Bebas-Neue;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    background-color: $black;
+    color: $white;
+  }
+
+  .page-icon-flex {
+    display: flex;
+    justify-content: space-between;
+    // margin-bottom: 40px;
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .mobile-pg-icon {
+      display: flex;
+
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .pages-flex {
+        font-family: $font-Bebas-Neue;
+        display: flex;
+        gap: 10px;
+        margin-top: 5px;
+      }
+    }
+    .icons-flex {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  .bottom-line {
+    height: 40px;
+    border-bottom: 1px solid $white;
+  }
+  .notion {
+    margin-left: 20px;
+    @include mobile {
+      margin-left: 0px;
+    }
+  }
+
+  .pj-timeline {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: $font-Bebas-Neue;
+    font-size: 0.8rem;
+    opacity: 60%;
+  }
 }
 
 // #wrap {
