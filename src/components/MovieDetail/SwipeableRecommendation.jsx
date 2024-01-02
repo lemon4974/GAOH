@@ -1,17 +1,17 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
 
-import "../../styles/movieDetail/swipeableRecommendation.scss";
+import '../../styles/movieDetail/swipeableRecommendation.scss';
 
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import SwipeableViews from "react-swipeable-views";
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import MobileStepper from '@mui/material/MobileStepper';
+import ArrowBack from '@mui/icons-material/ArrowBack';
+import ArrowForward from '@mui/icons-material/ArrowForward';
+import SwipeableViews from 'react-swipeable-views';
 
 const itemsPerView = 2; // Number of items per view
 
@@ -48,16 +48,15 @@ export default function SwipeableRecommendation({ movieId }) {
           `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`,
           {
             headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+              accept: 'application/json',
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
             },
           }
         );
         setRecommendations(response.data.results);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -67,7 +66,7 @@ export default function SwipeableRecommendation({ movieId }) {
     fetchRecommendations();
   }, []);
 
-  console.log("recommendation", recommendations);
+  console.log('recommendation', recommendations);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -77,7 +76,7 @@ export default function SwipeableRecommendation({ movieId }) {
     // <div>hi</div>
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
       <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
@@ -86,18 +85,18 @@ export default function SwipeableRecommendation({ movieId }) {
           <div
             key={index}
             style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              gap: "10px",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              gap: '10px',
             }}
           >
             {recommendations
               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
               .map((recommendation, imgIndex) => (
-                <div style={{ width: "calc(50% - 5px)" }}>
+                <div style={{ width: 'calc(50% - 5px)' }}>
                   <Link to={`/films/detail/${recommendation.id}`}>
                     <Box
                       key={imgIndex}
@@ -105,10 +104,10 @@ export default function SwipeableRecommendation({ movieId }) {
                       className="image-hover-effect"
                       sx={{
                         height: 250,
-                        display: "block",
+                        display: 'block',
                         maxWidth: 400,
-                        overflow: "hidden",
-                        width: "100%",
+                        overflow: 'hidden',
+                        width: '100%',
                       }}
                       src={`https://image.tmdb.org/t/p/original${recommendation.backdrop_path}`}
                       alt={recommendation.title}
@@ -137,16 +136,16 @@ export default function SwipeableRecommendation({ movieId }) {
         position="static"
         activeStep={activeStep}
         sx={{
-          backgroundColor: "#fcf4e5", // Custom background color
-          "& .MuiMobileStepper-dot": {
-            backgroundColor: "#fcf4e5", // Color of inactive dots
-            border: "1px solid black",
+          backgroundColor: '#fcf4e5', // Custom background color
+          '& .MuiMobileStepper-dot': {
+            backgroundColor: '#fcf4e5', // Color of inactive dots
+            border: '1px solid black',
           },
-          "& .MuiMobileStepper-dotActive": {
-            backgroundColor: "#eb4d33", // Color of the active dot
-            border: "1px solid #fcf4e5",
+          '& .MuiMobileStepper-dotActive': {
+            backgroundColor: '#eb4d33', // Color of the active dot
+            border: '1px solid #fcf4e5',
           },
-          padding: "0",
+          padding: '0',
         }}
         nextButton={
           <div
@@ -156,7 +155,7 @@ export default function SwipeableRecommendation({ movieId }) {
             className="carousel-next-prev"
           >
             Next
-            {theme.direction === "rtl" ? <ArrowBack /> : <ArrowForward />}
+            {theme.direction === 'rtl' ? <ArrowBack /> : <ArrowForward />}
           </div>
         }
         backButton={
@@ -166,7 +165,7 @@ export default function SwipeableRecommendation({ movieId }) {
             disabled={activeStep === 0}
             className="carousel-next-prev"
           >
-            {theme.direction === "rtl" ? <ArrowForward /> : <ArrowBack />}
+            {theme.direction === 'rtl' ? <ArrowForward /> : <ArrowBack />}
             prev
           </div>
         }

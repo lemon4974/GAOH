@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-import "../styles/movieDetail/moviedetail.scss";
+import '../styles/movieDetail/moviedetail.scss';
 // import ImageCarousel from "../components/MovieDetail/ImageCarousel";
 // import { SwipeableMobileStepper } from "../components/MovieDetail/SwipeableMobileStepper";
-import SwipeableMobileStepper from "../components/MovieDetail/SwipeableMobileStepper";
-import SwipeableRecommendation from "../components/MovieDetail/SwipeableRecommendation";
-import DetailVideo from "../components/MovieDetail/DetailVideo";
+import SwipeableMobileStepper from '../components/MovieDetail/SwipeableMobileStepper';
+import SwipeableRecommendation from '../components/MovieDetail/SwipeableRecommendation';
+import DetailVideo from '../components/MovieDetail/DetailVideo';
 
 export default function MovieDetail() {
   const [data, setData] = useState(null);
@@ -34,15 +34,14 @@ export default function MovieDetail() {
           // "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=1953&region=US&sort_by=popularity.desc",
           {
             headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+              accept: 'application/json',
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
             },
           }
         );
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -61,15 +60,14 @@ export default function MovieDetail() {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
           {
             headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+              accept: 'application/json',
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
             },
           }
         );
         setActors(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -83,8 +81,8 @@ export default function MovieDetail() {
   // console.log("movie detail actors >>", actors);
 
   const formatYear = (dateString) => {
-    const options = { year: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    const options = { year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
   return (
@@ -105,7 +103,7 @@ export default function MovieDetail() {
               data && data.backdrop_path
             }`}
             alt={`${data && data.original_title} 이미지`}
-            style={{ filter: "grayscale(100%)" }}
+            style={{ filter: 'grayscale(100%)' }}
           />
         </div>
         <div className="movie-data-btn-flex">
@@ -179,7 +177,7 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">videos</div>
-        <DetailVideo movieId={movieId}/>
+        <DetailVideo movieId={movieId} />
         <video src=""></video>
         <video src=""></video>
       </div>

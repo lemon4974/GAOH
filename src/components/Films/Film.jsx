@@ -21,8 +21,7 @@ export default function Film({ year, filter }) {
           {
             headers: {
               accept: 'application/json',
-              Authorization:
-                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM',
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
             },
           }
         );
@@ -68,7 +67,6 @@ export default function Film({ year, filter }) {
 
   return (
     <div>
-      
       <div className="films-grids">
         {/* //data가 없다면 표시할 div */}
         {data &&

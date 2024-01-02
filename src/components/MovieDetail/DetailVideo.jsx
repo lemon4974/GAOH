@@ -1,8 +1,8 @@
 // import React from "react";
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import axios from "axios";
+import axios from 'axios';
 
 export default function DetailVideo() {
   const [videos, setVideos] = useState(null);
@@ -19,15 +19,14 @@ export default function DetailVideo() {
           `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
           {
             headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTgyNDhlY2NiZDUzNGNkYjAxNWY0MDhkNWMyMGUzOCIsInN1YiI6IjY1NjljM2ZmZWEzN2UwMDE0ZWQ2ZWI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0cMyb46qJgcy9qYvXQCKqRfAW9yldC3HPy4YZizCVaM",
+              accept: 'application/json',
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
             },
           }
         );
         setVideos(response.data.results);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setError(error);
       } finally {
         setLoading(false);
@@ -40,14 +39,19 @@ export default function DetailVideo() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log("detail videos", videos);
+  console.log('detail videos', videos);
 
   const createYouTubeUrl = (key) => `https://www.youtube.com/embed/${key}`;
 
   return (
     <div
       className="video-gallery"
-      style={{ display: "flex", flexDirection: "row", width: "100%", gap: '10px' }}
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        gap: '10px',
+      }}
     >
       {videos &&
         videos.slice(0, 2).map((video, index) => (
