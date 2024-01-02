@@ -128,3 +128,43 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.custom-select {
+  color: $red; // Text color red
+  font-weight: 700;
+  border: none; // No square border
+  font-family: $font-Tinos;
+  background-color: transparent; // Optional: to make the background transparent
+  -webkit-appearance: none; // Removes default styling for WebKit browsers
+  -moz-appearance: none; // Removes default styling for Mozilla browsers
+  appearance: none; // Removes default styling
+
+  &:focus {
+    outline: none; // Removes the focus outline
+  }
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23eb4d33" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 20,0 10,10"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0px top 70%; // Adjust the position as needed
+  background-size: 8px;
+}
+
+.custom-select2 {
+  color: $red; // Text color red
+  font-weight: 700;
+  border: none; // No square border
+  font-family: $font-Tinos;
+  background-color: transparent; // Optional: to make the background transparent
+  -webkit-appearance: none; // Removes default styling for WebKit browsers
+  -moz-appearance: none; // Removes default styling for Mozilla browsers
+  appearance: none; // Removes default styling
+
+  &:focus {
+    outline: none; // Removes the focus outline
+  }
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23eb4d33" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 20,0 10,10"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0px top 70%; // Adjust the position as needed
+  background-size: 8px;
+}

@@ -65,7 +65,13 @@ export default function Films() {
         </div>
         <div>Sort by</div>
         <div>
-          <select name="year" id="year-select" onChange={handleYearChange}>
+          <select
+            name="year"
+            id="year-select"
+            onChange={handleYearChange}
+            className="custom-select"
+            style={{ width: '40px', display: 'flex', alignContent: 'baseline' }}
+          >
             {years.map((year) => (
               <option key={year} value={year}>
                 {year}
@@ -78,9 +84,11 @@ export default function Films() {
             name="filter"
             id="filter-select"
             onChange={handleFilterChange}
+            className="custom-select2"
+            style={{ width: '55px' }}
           >
-            <option value="popularity.desc">popular</option>
-            <option value="primary_release_date.desc">latest</option>
+            <option value="popularity.desc">Popular</option>
+            <option value="primary_release_date.desc">Latest</option>
           </select>
         </div>
       </div>
