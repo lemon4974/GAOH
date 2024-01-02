@@ -2,7 +2,7 @@
 
 .title-grids {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   font-family: $font-Bebas-Neue;
 
   margin-bottom: 30px;
@@ -28,7 +28,7 @@
   // display: flex;
   // flex-direction: row;
   display: grid;
-  
+
   grid-template-columns: 1fr 1fr;
   margin-bottom: 50px;
   @include mobile {
@@ -84,4 +84,7 @@
 
 .content-div {
   margin-bottom: 50px;
+  .storyline-content {
+    font-family: $font-Tinos;
+  }
 }
