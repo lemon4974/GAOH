@@ -171,8 +171,7 @@ export default function MovieDetail() {
 
       <div className="content-div">
         <div className="title-content">StoryLine</div>
-
-        {data && data.overview}
+        <div className="storyline-content">{data && data.overview}</div>
       </div>
 
       <div className="content-div">
