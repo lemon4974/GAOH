@@ -13,30 +13,70 @@ export default function Film({ year, filter }) {
     // 'https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg';
     'https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&primary_release_year=${year}&region=US&sort_by=${filter}`,
-          {
-            headers: {
-              accept: 'application/json',
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
-            },
-          }
-        );
-        setData((prevData) => ({
-          ...prevData,
-          results: [...prevData.results, ...response.data.results],
-        }));
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&primary_release_year=${year}&region=US&sort_by=${filter}`,
+  //         {
+  //           headers: {
+  //             accept: 'application/json',
+  //             Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
+  //           },
+  //         }
+  //       );
+  //       setData((prevData) => ({
+  //         ...prevData,
+  //         results: [...prevData.results, ...response.data.results],
+  //       }));
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setError(error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [year, filter, page]);
+  //   fetchData();
+  // }, [year, filter, page]);
+
+  // 초기 화면 세팅 & year filter change handling
+  useEffect(() => {
+    setLoading(true);
+    setPage(1); // Reset page number on year/filter change
+    fetchData(1); // Fetch first page of data
+  }, [year, filter]);
+
+  // Infinite scrolling logic
+  useEffect(() => {
+    if (page > 1) {
+      fetchData(page); // 다음 페이지의 data를 fetch 해 옴.
+    }
+  }, [page]);
+
+  // 데이터 가져오는 함수
+  const fetchData = async (pageNum) => {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageNum}&primary_release_year=${year}&region=US&sort_by=${filter}`,
+        {
+          headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
+          },
+        }
+      );
+      setData((prevData) => ({
+        ...prevData,
+        results:
+          pageNum === 1
+            ? response.data.results
+            : [...prevData.results, ...response.data.results],
+      }));
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   console.log('film data >>', data);
   console.log('film page >>', page);
@@ -94,8 +134,6 @@ export default function Film({ year, filter }) {
                   <Link to={`/films/detail/${movie.id}`}>
                     <span className="more-span">more</span>
                   </Link>
-
-                  {/* <img src={'/svg/Arrow_Up_Right.svg'} alt="사진" /> */}
                 </div>
               </div>
             </div>
