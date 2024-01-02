@@ -45,7 +45,7 @@ export default function Home() {
     <div>
       <div className="wrapper">
         <div className="home-title">The Golden Age Of Hollywood</div>
-        <div className="home-subtitle title-2">Film Festival</div>
+        {/* <div className="home-subtitle title-2">Film Festival</div> */}
       </div>
       <MovieReel />
 
