@@ -10,6 +10,14 @@
   margin: 0 auto;
   padding-left: 80px;
   padding-right: 80px;
+  @include tablet {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include mobile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 //공통 button CSS
