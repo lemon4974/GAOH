@@ -1,4 +1,4 @@
-@import "../global.scss";
+@import '../global.scss';
 
 .movie-info {
   font-family: $font-Bebas-Neue;
@@ -27,11 +27,11 @@
   cursor: pointer;
 }
 
-.image-hover-effect {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease; /* Optional: Smooth transition for the effect */
-}
+// .image-hover-effect {
+//   filter: grayscale(100%);
+//   transition: filter 0.3s ease; /* Optional: Smooth transition for the effect */
+// }
 
-.image-hover-effect:hover {
-  filter: grayscale(0%);
-}
+// .image-hover-effect:hover {
+//   filter: grayscale(0%);
+// }
