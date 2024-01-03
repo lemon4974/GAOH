@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import '../styles/home/home.scss';
-import MovieReel from '../components/Main/MovieReel';
-import Ticket from '../components/Main/Ticket';
-import About from '../components/Main/About';
-import Search from '../components/Main/Search';
+import MovieReel from '../components/Home/MovieReel';
+import Ticket from '../components/Home/Ticket';
+import About from '../components/Home/About';
+import Search from '../components/Home/Search';
 
 export default function Home() {
   const [data, setData] = useState(null);

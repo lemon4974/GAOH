@@ -112,7 +112,7 @@ export default function Film({ year, filter }) {
         {data &&
           data.results.map((movie, index) => (
             <div key={index} className="film-grid">
-              <div className="img-wrapper">
+              <div className="img-wrapper image-hover-effect">
                 <Link to={`/films/detail/${movie.id}`}>
                   <img
                     src={
