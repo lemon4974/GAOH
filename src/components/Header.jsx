@@ -7,8 +7,8 @@ import { loginState } from '../state/userNameState';
 
 import '../styles/header.scss';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
-import MovieCreationIcon from '@mui/icons-material/MovieCreation';
-import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+// import MovieCreationIcon from '@mui/icons-material/MovieCreation';
+// import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import { OriginalState, SnowState, modeState } from '../state/theme';
 
 export default function Header() {
@@ -41,7 +41,7 @@ export default function Header() {
           <LocalMoviesIcon />
           {/* <MovieCreationIcon /> */}
           {/* <TheaterComedyIcon /> */}
-          <div>GAFF</div>
+          <div>GAOH</div>
         </div>
         <div className="detail-link">
           <Link to="/">
