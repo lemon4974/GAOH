@@ -42,7 +42,8 @@ export default function Footer() {
                 <div className="Icon notion">Notion</div>
               </a>
               <a
-                href="https://docs.google.com/presentation/d/1PpYLDlya7PLAvalIxgVi-B6isoFG7t9QLDxOZCdK6no/edit#slide=id.ga073618e60_0_16"
+                // href="https://docs.google.com/presentation/d/1PpYLDlya7PLAvalIxgVi-B6isoFG7t9QLDxOZCdK6no/edit#slide=id.ga073618e60_0_16"
+                href="https://docs.google.com/presentation/d/1PpYLDlya7PLAvalIxgVi-B6isoFG7t9QLDxOZCdK6no/edit?usp=sharing"
                 className="Icon"
               >
                 <div className="Icon">Presentation</div>
