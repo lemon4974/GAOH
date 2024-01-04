@@ -13,7 +13,7 @@ import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import SwipeableViews from 'react-swipeable-views';
 
-const itemsPerView = 2; // Number of items per view
+// const itemsPerView = 2; // Number of items per view
 
 export default function SwipeableMobileStepper({ movieId }) {
   // const { movieId } = useParams();
@@ -25,6 +25,25 @@ export default function SwipeableMobileStepper({ movieId }) {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  //이미지 캐러셀 반응형 - 스크린 크기에 따른 한 view당 item 수 변화
+  const [itemsPerView, setItemsPerView] = useState(2);
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      const newItemsPerView = window.innerWidth < 650 ? 1 : 2;
+      setItemsPerView(newItemsPerView);
+    };
+
+    window.addEventListener('resize', updateItemsPerView);
+    updateItemsPerView(); // Initial check on component mount
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', updateItemsPerView);
+    };
+  }, []);
+  //이미지 캐러셀 반응형 끝
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -64,7 +83,7 @@ export default function SwipeableMobileStepper({ movieId }) {
     fetchImages();
   }, [movieId]);
 
-  console.log(images);
+  // console.log(images);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -92,15 +111,19 @@ export default function SwipeableMobileStepper({ movieId }) {
             {images
               .slice(index * itemsPerView, index * itemsPerView + itemsPerView)
               .map((image, imgIndex) => (
-                <div style={{ width: 'calc(50% - 5px)' }}>
+                <div
+                  style={{
+                    width: itemsPerView === 1 ? '100%' : 'calc(50% - 5px)',
+                  }}
+                >
                   <Box
                     key={imgIndex}
                     component="img"
                     className="image-hover-effect"
                     sx={{
-                      height: 255,
+                      height: '100%',
                       display: 'block',
-                      maxWidth: 400,
+                      // maxWidth: 400,
                       overflow: 'hidden',
                       width: '100%',
                     }}
@@ -118,13 +141,13 @@ export default function SwipeableMobileStepper({ movieId }) {
         position="static"
         activeStep={activeStep}
         sx={{
-          backgroundColor: '#fcf4e5', // Custom background color
+          backgroundColor: '#fcf4e5',
           '& .MuiMobileStepper-dot': {
-            backgroundColor: '#fcf4e5', // Color of inactive dots
+            backgroundColor: '#fcf4e5',
             border: '1px solid black',
           },
           '& .MuiMobileStepper-dotActive': {
-            backgroundColor: '#eb4d33', // Color of the active dot
+            backgroundColor: '#eb4d33',
             border: '1px solid #fcf4e5',
           },
           padding: '0',
