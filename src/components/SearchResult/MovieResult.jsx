@@ -69,7 +69,10 @@ export default function MovieResult({ query }) {
   }, [query]);
 
   console.log('data >>', data);
-  console.log('query', query);
+  if (!query) {
+    // console.log('query', query);
+    console.log('query 가 없음');
+  }
 
   const formatDate = (dateString) => {
     const options = { day: 'numeric', month: 'short', year: 'numeric' };
@@ -78,7 +81,7 @@ export default function MovieResult({ query }) {
 
   return (
     <div>
-      {data &&
+      {data ? (
         data.results.map((movie, index) => (
           <div className="one-movie-div" key={index}>
             {/* <p>Title: {movie.original_title}</p> */}
@@ -113,7 +116,15 @@ export default function MovieResult({ query }) {
               </div>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="title-no-result">
+          <div>No results found.</div>
+          <div>
+            Please try a different search term to discover something new.
+          </div>
+        </div>
+      )}
     </div>
   );
 }
