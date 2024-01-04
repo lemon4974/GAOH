@@ -39,34 +39,34 @@ export default function DetailVideo() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log('detail videos', videos);
+  // console.log('detail videos', videos);
 
   const createYouTubeUrl = (key) => `https://www.youtube.com/embed/${key}`;
 
   return (
     <div
       className="video-gallery"
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        gap: '10px',
-      }}
+      // style={{
+      //   display: 'flex',
+      //   flexDirection: 'row',
+      //   width: '100%',
+      //   gap: '10px',
+      // }}
     >
       {videos &&
         videos.slice(0, 2).map((video, index) => (
           <div key={index} className="video-container">
             <div>
               <iframe
-                width="400"
-                height="250"
+                // width="100%"
+                // height="100%"
                 src={createYouTubeUrl(video.key)}
                 title={video.name}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-              <h3>{video.name}</h3>
+              {/* <h3>{video.name}</h3> */}
             </div>
           </div>
         ))}

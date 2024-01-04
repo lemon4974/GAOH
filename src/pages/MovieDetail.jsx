@@ -77,7 +77,7 @@ export default function MovieDetail() {
     fetchActors();
   }, [movieId]);
 
-  // console.log("movie detail data >>", data);
+  console.log('movie detail data >>', data);
   // console.log("movie detail actors >>", actors);
 
   const formatYear = (dateString) => {
@@ -97,13 +97,13 @@ export default function MovieDetail() {
 
       <div className="movie-data-flex">
         {/* <p>Movie ID: {movieId}</p> */}
-        <div className="img-wrapper">
+        <div className="img-wrapper image-hover-effect">
           <img
             src={`https://image.tmdb.org/t/p/original${
               data && data.backdrop_path
             }`}
             alt={`${data && data.original_title} 이미지`}
-            style={{ filter: 'grayscale(100%)' }}
+            // style={{ filter: 'grayscale(100%)' }}
           />
         </div>
         <div className="movie-data-btn-flex">
@@ -161,10 +161,16 @@ export default function MovieDetail() {
             </div>
           </div>
           <div className="movie-btn-flex">
-            <button className="oreo-btn">IMDB</button>
-            {/* <Link to=""> */}
-            <button>YouTube</button>
-            {/* </Link> */}
+            <a href={`https://www.imdb.com/title/${data && data.imdb_id}/`}>
+              <button className="Imdb-btn">IMDB</button>
+            </a>
+            <a href={`${data && data.homepage}`}>
+              {data && data.homepage !== '' ? (
+                <button className="oreo-btn">Homepage</button>
+              ) : (
+                <div></div>
+              )}
+            </a>
           </div>
         </div>
       </div>
@@ -177,8 +183,6 @@ export default function MovieDetail() {
       <div className="content-div">
         <div className="title-content">videos</div>
         <DetailVideo movieId={movieId} />
-        <video src=""></video>
-        <video src=""></video>
       </div>
 
       <div className="content-div">
