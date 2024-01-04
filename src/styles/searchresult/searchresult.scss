@@ -19,6 +19,13 @@
 
   display: grid;
   grid-template-columns: 2fr 3fr;
+  gap: 10px;
+  // @include tablet {
+  //   grid-template-columns: 1fr;
+  // }
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 
   .date-div {
     border-bottom: 1px solid $black;
@@ -39,6 +46,9 @@
   }
 
   .movie-btn-flex {
+    @include mobile {
+      margin-top: 15px;
+    }
     display: flex;
     width: 100%;
     justify-content: flex-end;

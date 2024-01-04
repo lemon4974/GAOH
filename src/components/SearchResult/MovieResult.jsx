@@ -107,7 +107,7 @@ export default function MovieResult({ query }) {
               </div>
               <div className="movie-search-data">
                 <div className="search-detail-title">Plot</div>
-                <div>{movie.overview}</div>
+                <div style={{ textAlign: 'justify' }}>{movie.overview}</div>
               </div>
               <div className="movie-btn-flex">
                 <Link to={`/films/detail/${movie.id}`}>
