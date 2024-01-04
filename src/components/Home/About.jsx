@@ -25,12 +25,12 @@ export default function About() {
           </div>
           <div>
             {/* <img src="" alt="사진" /> */}
-            <div>
+            {/* <div>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
               ea inventore maiores quod qui cum quisquam natus. Repudiandae
               dignissimos dolore eius saepe voluptate vel unde! Et libero
               dolorum fugiat illum!
-            </div>
+            </div> */}
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

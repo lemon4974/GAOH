@@ -8,44 +8,45 @@ import Ticket from '../components/Home/Ticket';
 import About from '../components/Home/About';
 import Search from '../components/Home/Search';
 import Loading from '../components/Loading';
+import HomeFilm from '../components/Home/HomeFilm';
 
 export default function Home() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          // 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1',
-          'https://api.themoviedb.org/3/search/movie?query=Audrey+Hepburn&api_key=c18248eccbd534cdb015f408d5c20e38',
-          {
-            headers: {
-              accept: 'application/json',
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
-            },
-          }
-        );
-        setData(response.data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         // 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1',
+  //         'https://api.themoviedb.org/3/search/movie?query=Audrey+Hepburn&api_key=c18248eccbd534cdb015f408d5c20e38',
+  //         {
+  //           headers: {
+  //             accept: 'application/json',
+  //             Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
+  //           },
+  //         }
+  //       );
+  //       setData(response.data);
+  //     } catch (error) {
+  //       setError(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   console.log('data >>', data);
 
-  if (loading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+  // if (loading)
+  //   return (
+  //     <div>
+  //       <Loading />
+  //     </div>
+  //   );
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div>
@@ -65,6 +66,7 @@ export default function Home() {
       <div className="wrapper">
         <About />
         <Search />
+        <HomeFilm />
         <div>search</div>
       </div>
       <div>film동영상</div>
