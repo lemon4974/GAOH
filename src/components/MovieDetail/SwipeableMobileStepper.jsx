@@ -87,7 +87,9 @@ export default function SwipeableMobileStepper({ movieId }) {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const maxSteps = Math.ceil(images.length / 2);
+  // const maxSteps = Math.ceil(images.length / 2);
+
+  const maxSteps = images ? Math.ceil(images.length / itemsPerView) : 0;
   return (
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
       <SwipeableViews
@@ -135,47 +137,57 @@ export default function SwipeableMobileStepper({ movieId }) {
           </div>
         ))}
       </SwipeableViews>
-      <MobileStepper
-        variant="dots"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        sx={{
-          backgroundColor: '#fcf4e5',
-          '& .MuiMobileStepper-dot': {
+      {images && images.length > 0 && (
+        <MobileStepper
+          variant="dots"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          sx={{
             backgroundColor: '#fcf4e5',
-            border: '1px solid black',
-          },
-          '& .MuiMobileStepper-dotActive': {
-            backgroundColor: '#eb4d33',
-            border: '1px solid #fcf4e5',
-          },
-          padding: '0',
-          marginTop: '5px',
-        }}
-        nextButton={
-          <div
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-            className="carousel-next-prev"
-          >
-            Next
-            {theme.direction === 'rtl' ? <ArrowBack /> : <ArrowForward />}
-          </div>
-        }
-        backButton={
-          <div
-            size="small"
-            onClick={handleBack}
-            disabled={activeStep === 0}
-            className="carousel-next-prev"
-          >
-            {theme.direction === 'rtl' ? <ArrowForward /> : <ArrowBack />}
-            Back
-          </div>
-        }
-      />
+            '& .MuiMobileStepper-dot': {
+              backgroundColor: '#fcf4e5',
+              border: '1px solid black',
+            },
+            '& .MuiMobileStepper-dotActive': {
+              backgroundColor: '#eb4d33',
+              border: '1px solid #fcf4e5',
+            },
+            padding: '0',
+            marginTop: '5px',
+          }}
+          nextButton={
+            activeStep < maxSteps - 1 ? (
+              <div
+                size="small"
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+                className="carousel-next-prev"
+              >
+                Next
+                {theme.direction === 'rtl' ? <ArrowBack /> : <ArrowForward />}
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+          backButton={
+            activeStep > 0 ? (
+              <div
+                size="small"
+                onClick={handleBack}
+                disabled={activeStep === 0}
+                className="carousel-next-prev"
+              >
+                {theme.direction === 'rtl' ? <ArrowForward /> : <ArrowBack />}
+                Back
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+        />
+      )}
     </div>
   );
 }

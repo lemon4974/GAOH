@@ -90,7 +90,11 @@ export default function SwipeableRecommendation({ movieId }) {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const maxSteps = Math.ceil(recommendations.length / 2);
+  // const maxSteps = Math.ceil(recommendations.length / 2);
+  const maxSteps = recommendations
+    ? Math.ceil(recommendations.length / itemsPerView)
+    : 0;
+
   return (
     // <div>hi</div>
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
@@ -154,46 +158,56 @@ export default function SwipeableRecommendation({ movieId }) {
           </div>
         ))}
       </SwipeableViews>
-      <MobileStepper
-        variant="dots"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        sx={{
-          backgroundColor: '#fcf4e5', // Custom background color
-          '& .MuiMobileStepper-dot': {
-            backgroundColor: '#fcf4e5', // Color of inactive dots
-            border: '1px solid black',
-          },
-          '& .MuiMobileStepper-dotActive': {
-            backgroundColor: '#eb4d33', // Color of the active dot
-            border: '1px solid #fcf4e5',
-          },
-          padding: '0',
-        }}
-        nextButton={
-          <div
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-            className="carousel-next-prev"
-          >
-            Next
-            {theme.direction === 'rtl' ? <ArrowBack /> : <ArrowForward />}
-          </div>
-        }
-        backButton={
-          <div
-            size="small"
-            onClick={handleBack}
-            disabled={activeStep === 0}
-            className="carousel-next-prev"
-          >
-            {theme.direction === 'rtl' ? <ArrowForward /> : <ArrowBack />}
-            prev
-          </div>
-        }
-      />
+      {recommendations && recommendations.length > 0 && (
+        <MobileStepper
+          variant="dots"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          sx={{
+            backgroundColor: '#fcf4e5', // Custom background color
+            '& .MuiMobileStepper-dot': {
+              backgroundColor: '#fcf4e5', // Color of inactive dots
+              border: '1px solid black',
+            },
+            '& .MuiMobileStepper-dotActive': {
+              backgroundColor: '#eb4d33', // Color of the active dot
+              border: '1px solid #fcf4e5',
+            },
+            padding: '0',
+          }}
+          nextButton={
+            activeStep < maxSteps - 1 ? (
+              <div
+                size="small"
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+                className="carousel-next-prev"
+              >
+                Next
+                {theme.direction === 'rtl' ? <ArrowBack /> : <ArrowForward />}
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+          backButton={
+            activeStep > 0 ? (
+              <div
+                size="small"
+                onClick={handleBack}
+                disabled={activeStep === 0}
+                className="carousel-next-prev"
+              >
+                {theme.direction === 'rtl' ? <ArrowForward /> : <ArrowBack />}
+                prev
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+        />
+      )}
     </div>
   );
 }
