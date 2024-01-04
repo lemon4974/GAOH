@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Loading from '../Loading';
 
 export default function Film({ year, filter }) {
   const [data, setData] = useState({ results: [] });
@@ -102,8 +103,13 @@ export default function Film({ year, filter }) {
     };
   }, [handleObserver]);
 
-  // if (loading) return <div>Loading...</div>;
-  // if (error) return <div>Error: {error.message}</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div>
@@ -139,7 +145,11 @@ export default function Film({ year, filter }) {
             </div>
           ))}
       </div>
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
       {error && <p>Error: {error.message}</p>}
       <div ref={loader} />
     </div>

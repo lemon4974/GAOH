@@ -12,6 +12,7 @@ import MobileStepper from '@mui/material/MobileStepper';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import SwipeableViews from 'react-swipeable-views';
+import Loading from '../Loading';
 
 // const itemsPerView = 2; // Number of items per view
 
@@ -87,7 +88,12 @@ export default function SwipeableRecommendation({ movieId }) {
 
   // console.log('recommendation', recommendations);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   if (error) return <div>Error: {error.message}</div>;
 
   // const maxSteps = Math.ceil(recommendations.length / 2);

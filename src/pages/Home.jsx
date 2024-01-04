@@ -7,6 +7,7 @@ import MovieReel from '../components/Home/MovieReel';
 import Ticket from '../components/Home/Ticket';
 import About from '../components/Home/About';
 import Search from '../components/Home/Search';
+import Loading from '../components/Loading';
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -39,7 +40,12 @@ export default function Home() {
 
   console.log('data >>', data);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div>
@@ -52,6 +58,9 @@ export default function Home() {
       <div>
         <Ticket />
       </div>
+      {/* <div>
+        <Loading />
+      </div> */}
 
       <div className="wrapper">
         <About />

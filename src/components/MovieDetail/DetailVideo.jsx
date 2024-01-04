@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
+import Loading from '../Loading';
 
 export default function DetailVideo() {
   const [videos, setVideos] = useState(null);
@@ -36,7 +37,12 @@ export default function DetailVideo() {
     fetchVideos();
   }, [movieId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <p>
+        <Loading />
+      </p>
+    );
   if (error) return <p>Error: {error.message}</p>;
 
   // console.log('detail videos', videos);

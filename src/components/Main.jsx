@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled, { keyframes } from 'styled-components';
+import Loading from './Loading';
 
 export default function Main() {
   const [data, setData] = useState(null);
@@ -32,7 +33,12 @@ export default function Main() {
 
   console.log('data >>', data);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   if (error) return <div>Error: {error.message}</div>;
 
   return (

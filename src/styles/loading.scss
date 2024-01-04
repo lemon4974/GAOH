@@ -1,0 +1,36 @@
+//전역 변수
+@import './variables';
+
+//전역 미디어 쿼리
+@import './mixin';
+
+.fade-in {
+  animation: fadeIn 2s ease infinite;
+}
+
+.loading {
+  //   font-size: 8em;
+  transition: font-size 200ms ease-in-out;
+  color: $red;
+  font-family: $font-Bebas-Neue;
+  //   border-bottom: 1px dashed $red;
+
+  span#digit1 {
+    animation-delay: 200ms;
+  }
+  span#digit2 {
+    animation-delay: 300ms;
+  }
+  span#digit3 {
+    animation-delay: 400ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
