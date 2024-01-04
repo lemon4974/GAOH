@@ -101,7 +101,7 @@ export default function MovieResult({ query }) {
     return data.results.map((movie, index) => (
       <div className="one-movie-div" key={index}>
         {/* <p>Title: {movie.original_title}</p> */}
-        <div className="img-wrapper">
+        <div className="img-wrapper image-hover-effect">
           <Link to={`/films/detail/${movie.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/original${
