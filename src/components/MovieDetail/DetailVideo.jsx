@@ -45,7 +45,12 @@ export default function DetailVideo() {
     );
   if (error) return <p>Error: {error.message}</p>;
 
-  // console.log('detail videos', videos);
+  if (!videos || videos.length === 0) {
+    // If no videos are found, return null to render nothing
+    return <div className="storyline-content">No videos in the database.</div>;
+  }
+
+  console.log('detail videos', videos);
 
   const createYouTubeUrl = (key) => `https://www.youtube.com/embed/${key}`;
 

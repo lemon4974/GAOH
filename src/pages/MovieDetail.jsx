@@ -18,6 +18,10 @@ export default function MovieDetail() {
 
   const { movieId } = useParams();
 
+  const defaultMovieImg =
+    // 'https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg';
+    'https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg';
+
   //Back 클릭시 뒤로 가기 위함
   const navigate = useNavigate();
 
@@ -98,13 +102,35 @@ export default function MovieDetail() {
       <div className="movie-data-flex">
         {/* <p>Movie ID: {movieId}</p> */}
         <div className="img-wrapper image-hover-effect">
-          <img
+          {/* <img
             src={`https://image.tmdb.org/t/p/original${
               data && data.backdrop_path
             }`}
             alt={`${data && data.original_title} 이미지`}
             // style={{ filter: 'grayscale(100%)' }}
+          /> */}
+          <img
+            src={
+              data && data.backdrop_path
+                ? `https://image.tmdb.org/t/p/original${
+                    data && data.backdrop_path
+                  }`
+                : defaultMovieImg
+            }
+            alt={`${data && data.original_title} 이미지`}
+            // style={{ filter: 'grayscale(100%)' }}
           />
+
+          {/* <img
+                    src={
+                      movie.backdrop_path || movie.poster_path
+                        ? `https://image.tmdb.org/t/p/original${
+                            movie.backdrop_path || movie.poster_path
+                          }`
+                        : defaultMovieImg
+                    }
+                    alt={movie.title}
+                  /> */}
         </div>
         <div className="movie-data-btn-flex">
           <div className="movie-data-container">
@@ -174,11 +200,12 @@ export default function MovieDetail() {
           </div>
         </div>
       </div>
-
-      <div className="content-div">
-        <div className="title-content">StoryLine</div>
-        <div className="storyline-content">{data && data.overview}</div>
-      </div>
+      {data && data.overview && (
+        <div className="content-div">
+          <div className="title-content">StoryLine</div>
+          <div className="storyline-content">{data && data.overview}</div>
+        </div>
+      )}
 
       <div className="content-div">
         <div className="title-content">videos</div>

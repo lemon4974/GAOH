@@ -101,6 +101,14 @@ export default function SwipeableRecommendation({ movieId }) {
     ? Math.ceil(recommendations.length / itemsPerView)
     : 0;
 
+  if (!recommendations || recommendations.length === 0) {
+    // If no videos are found, return null to render nothing
+    return (
+      <div className="storyline-content">
+        No recommendations in the database.
+      </div>
+    );
+  }
   return (
     // <div>hi</div>
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>

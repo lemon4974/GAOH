@@ -95,6 +95,11 @@ export default function SwipeableMobileStepper({ movieId }) {
 
   // const maxSteps = Math.ceil(images.length / 2);
 
+  if (!images || images.length === 0) {
+    // If no videos are found, return null to render nothing
+    return <div className="storyline-content">No images in the database.</div>;
+  }
+
   const maxSteps = images ? Math.ceil(images.length / itemsPerView) : 0;
   return (
     <div sx={{ maxWidth: 1200, flexGrow: 1 }}>
