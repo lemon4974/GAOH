@@ -38,6 +38,10 @@ export default function MovieResult({ query }) {
   };
 
   useEffect(() => {
+    if (!query) {
+      setLoading(false); // Stop loading if there is no query
+      return;
+    }
     const fetchData = async () => {
       //query가 없다면 return
       if (!query) return;
@@ -79,59 +83,57 @@ export default function MovieResult({ query }) {
     const options = { day: 'numeric', month: 'short', year: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
-  // if (loading)
-  //   return (
-  //     <div>
-  //       <Loading />
-  //     </div>
-  //   );
 
-  return (
-    <div>
-      {data ? (
-        data.results.map((movie, index) => (
-          <div className="one-movie-div" key={index}>
-            {/* <p>Title: {movie.original_title}</p> */}
-            <div className="img-wrapper">
-              <Link to={`/films/detail/${movie.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${
-                    movie.backdrop_path || movie.poster_path
-                  }`}
-                  alt={movie.name}
-                />
-              </Link>
-            </div>
-            <div>
-              <div className="date-div">{formatDate(movie.release_date)}</div>
+  const renderContent = () => {
+    if (loading) return <Loading />;
 
-              <Link to={`/films/detail/${movie.id}`}>
-                <div className="title-content">{movie.original_title}</div>
-              </Link>
-              <div className="movie-search-data">
-                <div className="search-detail-title">Genre</div>
-                <div>{getGenreNames(movie.genre_ids)}</div>
-              </div>
-              <div className="movie-search-data">
-                <div className="search-detail-title">Plot</div>
-                <div style={{ textAlign: 'justify' }}>{movie.overview}</div>
-              </div>
-              <div className="movie-btn-flex">
-                <Link to={`/films/detail/${movie.id}`}>
-                  <button>Details</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))
-      ) : (
+    if (!query || (data && data.results.length === 0)) {
+      return (
         <div className="title-no-result">
           <div>No results found.</div>
           <div>
             Please try a different search term to discover something new.
           </div>
         </div>
-      )}
-    </div>
-  );
+      );
+    }
+
+    return data.results.map((movie, index) => (
+      <div className="one-movie-div" key={index}>
+        {/* <p>Title: {movie.original_title}</p> */}
+        <div className="img-wrapper">
+          <Link to={`/films/detail/${movie.id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/original${
+                movie.backdrop_path || movie.poster_path
+              }`}
+              alt={movie.name}
+            />
+          </Link>
+        </div>
+        <div>
+          <div className="date-div">{formatDate(movie.release_date)}</div>
+
+          <Link to={`/films/detail/${movie.id}`}>
+            <div className="title-content">{movie.original_title}</div>
+          </Link>
+          <div className="movie-search-data">
+            <div className="search-detail-title">Genre</div>
+            <div>{getGenreNames(movie.genre_ids)}</div>
+          </div>
+          <div className="movie-search-data">
+            <div className="search-detail-title">Plot</div>
+            <div style={{ textAlign: 'justify' }}>{movie.overview}</div>
+          </div>
+          <div className="movie-btn-flex">
+            <Link to={`/films/detail/${movie.id}`}>
+              <button>Details</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    ));
+  };
+
+  return <div>{renderContent()}</div>;
 }
