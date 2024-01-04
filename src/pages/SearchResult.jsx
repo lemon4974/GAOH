@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import '../styles/searchresult/searchresult.scss';
 import MovieResult from '../components/SearchResult/MovieResult';
 
+import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+
 export default function SearchResult() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('q');
+
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleClear = () => {
+    setSearchValue(''); // Clear the search input
+  };
 
   return (
     <div>
@@ -27,7 +35,20 @@ export default function SearchResult() {
                   type="search"
                   name="q"
                   placeholder="Search"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
                 />
+                {searchValue && (
+                  <ClearRoundedIcon
+                    style={{
+                      color: '#eb4d33',
+                      cursor: 'pointer',
+                      position: 'absolute',
+                      right: '30px',
+                    }}
+                    onClick={handleClear}
+                  />
+                )}
                 <label className="button searchbutton" htmlFor="searchright">
                   <span className="mglass">&#9906;</span>
                 </label>

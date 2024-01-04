@@ -60,13 +60,21 @@
 }
 
 .search:focus {
-  width: 363px; /* Bar width+1px */
-  padding: 0 16px 0 0;
+  width: 200px; /* 검색 창 크기 */
+  @include mobile {
+    width: 130px; /* 검색 창 크기 */
+  }
+  // padding: 0 16px 0 0;
+  margin-top: 3px;
+  background-color: #292323;
+  border-radius: 10px;
+  opacity: 0.9;
+  color: $red;
 }
 
 .expandright {
   left: auto;
-  right: 49px; /* Button width-1px */
+  right: 25px;
 }
 
 .expandright:focus {
@@ -83,6 +91,20 @@
   margin-bottom: 30px;
 
   font-family: $font-Tinos;
+}
+
+//input x 버튼 커스텀
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
 }
 
 // 사진 밑 개별 text
