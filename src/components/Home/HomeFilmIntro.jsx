@@ -79,7 +79,7 @@ export default function HomeFilmIntro() {
           <div className="intro-search-img-wrapper">
             <img
               style={{ width: '70%', border: '2px solid #eb4d33' }}
-              src={'/img/search.png'}
+              src={'/search.png'}
               alt="search 페이지 사진"
             />
           </div>
