@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 // import { ReactComponent as Icon } from '../public/Arrow_Link.svg';
 
-import "../../styles/home/about.scss";
+import '../../styles/home/about.scss';
 
 export default function About() {
   return (
@@ -9,15 +9,15 @@ export default function About() {
       <div className="about-title">About</div>
       <div className="about-content-flex">
         <div>
-          <div className="about-content" style={{ textAlign: "justify" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic
-            quisquam tempore nemo esse, reiciendis id voluptates cumque, aut cum
-            fugiat porro reprehenderit. Praesentium tenetur ipsa commodi, fugiat
-            consectetur deserunt omnis repellendus aliquam itaque eaque sequi
-            cupiditate dolorem maiores deleniti officia similique in voluptatem
-            delectus id. Inventore, sapiente fuga. Eligendi, aliquid ducimus.
-            Cum vero, porro deserunt eveniet culpa cumque laboriosam ut
-            voluptas,
+          <div className="about-content" style={{ textAlign: 'justify' }}>
+            This React application features a movie search page where users can
+            search for movies by title. When a query is entered, the app fetches
+            data from an API, filtering movies released between 1927 and 1969.
+            If there are no results or if a query hasn't been made, it prompts
+            users to try a different search term. The page includes a responsive
+            search bar and displays search results with detailed movie
+            information, enhancing the user experience in discovering classic
+            films.
           </div>
           {/* <div className="about-link">
             <span>Read more</span>
