@@ -1,0 +1,128 @@
+@import "../global.scss";
+
+@import "../global.scss";
+
+.intro-about-div {
+  margin: 50px 0;
+
+  .about-title {
+    font-family: $font-Bebas-Neue;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .about-content-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    width: 100%;
+    align-content: space-between;
+  }
+
+  .about-content {
+    font-family: $font-Tinos;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  .about-link {
+    font-family: $font-Bebas-Neue;
+    color: $red;
+    font-size: 20px;
+    height: 100%;
+
+    display: flex;
+
+    span {
+      align-items: center;
+    }
+
+    img {
+      height: 25px;
+      margin-left: 3px;
+    }
+
+    margin-bottom: 30px;
+  }
+}
+
+.search-about-div {
+  margin: 50px 0;
+
+  .about-title {
+    font-family: $font-Bebas-Neue;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .about-content-flex {
+    display: flex;
+    flex-direction: row;
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .about-content {
+    font-family: $font-Tinos;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  .about-link {
+    font-family: $font-Bebas-Neue;
+    color: $red;
+    font-size: 20px;
+    height: 100%;
+
+    display: flex;
+
+    span {
+      align-items: center;
+    }
+
+    img {
+      height: 25px;
+    }
+
+    margin-bottom: 30px;
+  }
+}
+
+.intro-search-img-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  @include mobile {
+    justify-content: center;
+    // max-width: 1170px; // 부트스트랩은 1170px 사용. width 만 사용하게 되면 가로 스크롤 발생
+
+    // padding-left: 40px;
+    // padding-right: 40px;
+    // margin: 0 auto;
+  }
+}
+.intro-films-img-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  @include mobile {
+    justify-content: center;
+    // max-width: 1170px; // 부트스트랩은 1170px 사용. width 만 사용하게 되면 가로 스크롤 발생
+
+    // padding-left: 40px;
+    // padding-right: 40px;
+    // margin: 0 auto;
+  }
+}
+
+.about-content-wrapper {
+  width: 50%;
+  @include mobile {
+    width: 100%;
+  }
+}

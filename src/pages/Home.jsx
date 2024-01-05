@@ -1,14 +1,15 @@
 // import React from 'react';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import '../styles/home/home.scss';
-import MovieReel from '../components/Home/MovieReel';
-import Ticket from '../components/Home/Ticket';
-import About from '../components/Home/About';
-import Search from '../components/Home/Search';
-import Loading from '../components/Loading';
-import HomeFilm from '../components/Home/HomeFilm';
+import "../styles/home/home.scss";
+import MovieReel from "../components/Home/MovieReel";
+import Ticket from "../components/Home/Ticket";
+import About from "../components/Home/About";
+import Search from "../components/Home/Search";
+import Loading from "../components/Loading";
+import HomeFilm from "../components/Home/HomeFilm";
+import HomeFilmIntro from "../components/Home/HomeFilmIntro";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -39,7 +40,7 @@ export default function Home() {
   //   fetchData();
   // }, []);
 
-  console.log('data >>', data);
+  console.log("data >>", data);
 
   // if (loading)
   //   return (
@@ -54,27 +55,29 @@ export default function Home() {
         <div className="home-title">The Golden Age Of Hollywood</div>
         {/* <div className="home-subtitle title-2">Film Festival</div> */}
       </div>
-      <MovieReel />
+      {/* <MovieReel /> */}
 
-      <div>
+      {/* <div>
         <Ticket />
-      </div>
+      </div> */}
       {/* <div>
         <Loading />
       </div> */}
 
       <div className="wrapper">
         <About />
-        <Search />
-        <HomeFilm />
-        <div>search</div>
-      </div>
-      <div>film동영상</div>
+        <HomeFilmIntro />
 
-      <div className="wrapper">
+        {/* <Search /> */}
+        {/* <HomeFilm /> */}
+        {/* <div>search</div> */}
+      </div>
+      {/* <div>film동영상</div> */}
+
+      {/* <div className="wrapper">
         <div>FAQ</div>
         <div>nodemailer?</div>
-      </div>
+      </div> */}
     </div>
   );
 }
