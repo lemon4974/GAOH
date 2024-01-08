@@ -1,4 +1,59 @@
-# Getting Started with Create React App
+# 💡 GAOH(Golden Age of Hollywood)
+
+SeSAC 3rd 프로젝트
+TMDB API를 활용한 고전 영화 검색 사이트입니다.
+개발기간: 2023.12.11 ~ 2024.01.05
+
+## 🔗관련 URL
+
+🚀 [프로젝트 배포 주소](https://yellow-n-blue-new.vercel.app/) by Vercel
+📰 [발표 자료](https://docs.google.com/presentation/d/1PpYLDlya7PLAvalIxgVi-B6isoFG7t9QLDxOZCdK6no/edit#slide=id.ga073618e60_0_16) by google slides
+📖 [개발 과정](https://sunrise-coal-31d.notion.site/yellow-blue-c8d5aa6bdb2841d6afce2a11332504ee?pvs=4) by notion
+
+## 시작 가이드
+
+Requirements
+
+- Installation
+  ` git clone 주소`
+
+`npm i
+ npm start
+`
+
+## 개발 환경
+
+### 👩🏻‍💻개발 인원
+
+> Frontend [최제윤](https://github.com/lemon4974)
+
+### 개발 도구
+
+> - 버전 관리 도구 : 깃헙
+> - 개발 문서 도구 : 노션
+
+### 사용 기술
+
+- 언어
+- 프레임워크
+- 배포
+
+### 화면 및 주요 기능
+
+|            |     |
+| ---------- | --- |
+| **Intro**  |     |
+| image      |     |
+| **Films**  |     |
+| image      |     |
+| **Search** |     |
+| image      |     |
+
+## 사용 라이브러리
+
+> react
+
+# 파일 구조
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
