@@ -44,104 +44,39 @@
 
 ## 🖥 화면 및 주요 기능
 
-🎞 **Films** 페이지
+### 🎞 **Films** 페이지
 
-- 검색, 연도별, 인기순과 최신순에 따른 고전 영화 데이터 로드
+**검색, 연도별, 인기순과 최신순에 따른 고전 영화 데이터 로드**
 
-> 검색 : query를 /search 로 URL의 일부로 전송  
-> select tag의 연도, 인기순/최신순 변화시 페이지 새로 로드  
-> `Infinite Scrolling` : Intersection Observer API를 이용한 무한 스크롤 기능
+- 검색 : query를 /search 로 URL의 일부로 전송
+- select tag의 연도, 인기순/최신순 변화시 페이지 새로 로드
+- `Infinite Scrolling` : Intersection Observer API를 이용한 무한 스크롤 기능
 
 | year에 따른 페이지 로드 | Infinite Scrolling |
 | ----------------------- | ------------------ |
 |                         |                    |
 
-🔍 **Search** 페이지
+### 🔍 **Search** 페이지
 
-- 전달된 query에 따른 검색 결과 표시되는 페이지
+**전달된 query에 따른 검색 결과 표시되는 페이지**
 
-> `useLocation, URLSearchParams, encodeURIComponent`을 이용한 쿼리 전달  
-> filter로 1927부터 1969의 특정 year 범위의 영화 데이터만 표기
+- `useLocation, URLSearchParams, encodeURIComponent`을 이용한 쿼리 전달
+- filter로 1927부터 1969의 특정 year 범위의 영화 데이터만 표기
 
 | year에 따른 페이지 로드 |
 | ----------------------- |
 |                         |
 
-📽 **Details** 페이지
+### 📽 **Details** 페이지
 
-- 영화 상세 정보 안내 페이지
-- 장르, 제작사, 출연 배우, 관련 사진, 추천작 등
+**영화 상세 정보 안내 페이지**  
+**장르, 제작사, 출연 배우, 관련 사진, 추천작 등**
 
-> 각기 다른 data에 따른 URL을 기준으로 컴포넌트 분리  
-> MUI의 Stepper와 react-swipeable-views를 이용한 `image carousel`
+- 각기 다른 data에 따른 URL을 기준으로 컴포넌트 분리
+- `MUI`의 Stepper와 react-swipeable-views를 이용한 `image carousel`
 
 | 화면 | 이미지 캐러셀 |
 | ---- | ------------- |
 |      |               |
 
 ## 🗂 파일 구조
-
-`📦src   
-┣ 📂components   
-┃ ┣ 📂Films   
-┃ ┃ ┗ 📜Film.jsx   
-┃ ┣ 📂Home   
-┃ ┃ ┣ 📜About.jsx  
-┃ ┃ ┣ 📜HomeFilm.jsx  
-┃ ┃ ┣ 📜HomeFilmIntro.jsx    
-┃ ┃ ┣ 📜Search.jsx   
-┃ ┃ ┗ 📜Ticket.jsx   
-┃ ┣ 📂Login   
-┃ ┃ ┗ 📜LoginForm.jsx  
-┃ ┣ 📂MovieDetail  
-┃ ┃ ┣ 📜DetailVideo.jsx  
-┃ ┃ ┣ 📜ImageCarousel.jsx  
-┃ ┃ ┣ 📜SwipeableMobileStepper.jsx  
-┃ ┃ ┗ 📜SwipeableRecommendation.jsx  
-┃ ┣ 📂SearchResult  
-┃ ┃ ┣ 📜Movie.jsx  
-┃ ┃ ┗ 📜MovieResult.jsx  
-┃ ┣ 📜Footer.jsx  
-┃ ┣ 📜Header.jsx   
-┃ ┣ 📜Loading.jsx  
-┣ 📂pages  
-┃ ┣ 📜Home.jsx  
-┃ ┣ 📜Films.jsx  
-┃ ┣ 📜SearchResult.jsx  
-┃ ┣ 📜MovieDetail.jsx  
-┃ ┣ 📜Error.jsx  
-┣ 📂services  
-┃ ┗ 📜movieAPI.js  
-┣ 📂state  
-┃ ┣ 📜movieState.js  
-┃ ┣ 📜theme.js  
-┃ ┗ 📜userNameState.js  
-┣ 📂styles  
-┃ ┣ 📂errorPg  
-┃ ┃ ┗ 📜error.scss  
-┃ ┣ 📂films  
-┃ ┃ ┗ 📜films.scss  
-┃ ┣ 📂home  
-┃ ┃ ┣ 📜about.scss  
-┃ ┃ ┣ 📜home.scss  
-┃ ┃ ┣ 📜homeFilm.scss  
-┃ ┃ ┣ 📜homeIntro.scss  
-┃ ┃ ┣ 📜moviereel.scss  
-┃ ┃ ┣ 📜search.scss  
-┃ ┃ ┗ 📜ticket.scss  
-┃ ┣ 📂movieDetail  
-┃ ┃ ┣ 📜imageCarousel.scss  
-┃ ┃ ┣ 📜moviedetail.scss  
-┃ ┃ ┗ 📜swipeableRecommendation.scss  
-┃ ┣ 📂searchresult  
-┃ ┃ ┗ 📜searchresult.scss  
-┃ ┣ 📜footer.scss  
-┃ ┣ 📜footerFixer.scss  
-┃ ┣ 📜global.scss  
-┃ ┣ 📜header.scss  
-┃ ┣ 📜loading.scss  
-┃ ┣ 📜_mixin.scss  
-┃ ┗ 📜_variables.scss  
-┣ 📜App.jsx  
-┣ 📜AppRoutes.jsx  
-┣ 📜index.js`
