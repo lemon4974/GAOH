@@ -54,7 +54,7 @@
 
 | year에 따른 페이지 로드 | Infinite Scrolling |
 | ----------------------- | ------------------ |
-|                         |                    |
+|    ![Movie filter](https://github.com/lemon4974/GAOH/assets/139740955/43737f46-3c2c-45a2-8e8c-ccd98e6a15d1)        |                    |
 
 ### 🔍 **Search** 페이지
 
