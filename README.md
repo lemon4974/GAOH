@@ -63,9 +63,9 @@
 - `useLocation, URLSearchParams, encodeURIComponent`을 이용한 쿼리 전달
 - filter로 1927부터 1969의 특정 year 범위의 영화 데이터만 표기
 
-| year에 따른 페이지 로드 |
+| 'gone with' 검색 결과 화면 |
 | ----------------------- |
-|                         |
+|           ![search](https://github.com/lemon4974/GAOH/assets/139740955/7b544886-50b4-4e09-8bcc-324ee5005f54)              |
 
 ### 📽 **Details** 페이지
 
