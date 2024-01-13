@@ -99,7 +99,8 @@ npm start
 
 | 화면 | 이미지 캐러셀 |
 | ---- | ------------- |
-|  ![Movie Detail](https://github.com/lemon4974/GAOH/assets/139740955/239a808c-61dc-484c-a3c1-ada98bb364fb)    |               |
+|  ![Movie Detail](https://github.com/lemon4974/GAOH/assets/139740955/239a808c-61dc-484c-a3c1-ada98bb364fb)    |    ![image carousel](https://github.com/lemon4974/GAOH/assets/139740955/cf9fa3dd-0a9e-4761-a6af-b2b241905c62)
+           |
 
 
 ## 🗂 파일 구조
