@@ -76,7 +76,7 @@ npm start
 
 | year에 따른 페이지 로드 | Infinite Scrolling |
 | ----------------------- | ------------------ |
-|    ![Movie filter](https://github.com/lemon4974/GAOH/assets/139740955/43737f46-3c2c-45a2-8e8c-ccd98e6a15d1)        |                    |
+|    ![Movie filter](https://github.com/lemon4974/GAOH/assets/139740955/43737f46-3c2c-45a2-8e8c-ccd98e6a15d1)        |      ![ezgif-4-4f0f105e40](https://github.com/lemon4974/GAOH/assets/139740955/5ae7e053-7241-46e6-8616-d9a774851ab7)              |
 
 ### 🔍 **Search** 페이지
 
