@@ -22,12 +22,12 @@
 
 ### 👩🏻‍💻개발 인원
 
-> Frontend [최제윤](https://github.com/lemon4974)
+- Frontend [최제윤](https://github.com/lemon4974)
 
 ### 🛠 개발 도구
 
-> - 버전 관리 도구 : GitHub
-> - 개발 문서 도구 : Notion
+ - 버전 관리 도구 : GitHub
+ - 개발 문서 도구 : Notion
 
 ### ⚒ 사용 기술
 
@@ -37,10 +37,12 @@
 
 ### 📚 사용 라이브러리
 
-> Axios  
-> react-router-dom  
-> react-swipeable-views  
-> recoil-persist
+- TMDB API
+- Axios  
+- react-router-dom  
+- react-swipeable-views  
+- recoil-persist
+- Intersection Observer API
 
 ## 🖥 화면 및 주요 기능
 
