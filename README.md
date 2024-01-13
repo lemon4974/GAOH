@@ -3,11 +3,15 @@
 - Open API(TMDB)를 활용한 필터 기능과 검색어 기능을 제공하는 고전 영화 검색 사이트
 - 개발기간: `2023.12.11 ~ 2024.01.05`
 
+
+
 ## 🔗 관련 URL
 
 > 🚀 [프로젝트 배포 주소](https://yellow-n-blue-new.vercel.app/) by Vercel  
 > 📰 [발표 자료](https://docs.google.com/presentation/d/1PpYLDlya7PLAvalIxgVi-B6isoFG7t9QLDxOZCdK6no/edit#slide=id.ga073618e60_0_16) by google slides  
 > 📖 [개발 과정](https://sunrise-coal-31d.notion.site/yellow-blue-c8d5aa6bdb2841d6afce2a11332504ee?pvs=4) by notion
+
+
 
 ## 👋🏻 시작 가이드
 
@@ -59,6 +63,7 @@ npm start
 - recoil-persist
 - Intersection Observer API
 
+
 ## 🖥 화면 및 주요 기능
 
 ### 🎞 **Films** 페이지
@@ -96,4 +101,41 @@ npm start
 | ---- | ------------- |
 |  ![Movie Detail](https://github.com/lemon4974/GAOH/assets/139740955/239a808c-61dc-484c-a3c1-ada98bb364fb)    |               |
 
+
 ## 🗂 파일 구조
+
+```bash
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂Films
+ ┃ ┣ 📂Home
+ ┃ ┣ 📂MovieDetail
+ ┃ ┣ 📂SearchResult
+ ┃ ┣ 📜Footer.jsx
+ ┃ ┣ 📜Header.jsx
+ ┣ 📂pages
+ ┃ ┣ 📜Error.jsx
+ ┃ ┣ 📜Films.jsx
+ ┃ ┣ 📜Home.jsx
+ ┃ ┣ 📜MovieDetail.jsx
+ ┃ ┣ 📜SearchResult.jsx
+ ┣ 📂styles
+ ┃ ┣ 📂films
+ ┃ ┣ 📂home
+ ┃ ┣ 📂movieDetail
+ ┃ ┃ ┣ 📜imageCarousel.scss
+ ┃ ┃ ┣ 📜moviedetail.scss
+ ┃ ┃ ┗ 📜swipeableRecommendation.scss
+ ┃ ┣ 📂searchresult
+ ┃ ┣ 📜footer.scss
+ ┃ ┣ 📜footerFixer.scss
+ ┃ ┣ 📜global.scss
+ ┃ ┣ 📜header.scss
+ ┃ ┣ 📜_mixin.scss
+ ┃ ┗ 📜_variables.scss
+ ┣ 📜App.jsx
+ ┣ 📜App.test.js
+ ┣ 📜AppRoutes.jsx
+ ┣ 📜index.js
+ ┗ 📜ThemeContext.js
+```
