@@ -1,8 +1,7 @@
 # 💡 GAOH(Golden Age of Hollywood)
 
-- SeSAC 3rd 프로젝트
-- TMDB API를 활용한 고전 영화 검색 사이트입니다.
-- 개발기간: 2023.12.11 ~ 2024.01.05
+- Open API(TMDB)를 활용한 필터 기능과 검색어 기능을 제공하는 고전 영화 검색 사이트
+- 개발기간: `2023.12.11 ~ 2024.01.05`
 
 ## 🔗 관련 URL
 
@@ -14,9 +13,25 @@
 
 **Installation**
 
-> `git clone https://github.com/lemon4974/YellowNBlue.git`  
-> `npm i`  
-> `npm start`
+```bash
+git clone https://github.com/lemon4974/YellowNBlue.git   
+npm i    
+npm start   
+```
+
+**주요 Version 정보**
+```bash
+"react": "^17.0.2",
+"react-router-dom": "^6.20.1",
+"react-scripts": "5.0.1",
+"axios": "^1.6.2",
+"@mui/material": "^5.15.0",
+"recoil": "^0.7.7",
+"recoil-persist": "^5.1.0",
+"sass": "^1.69.5",
+"Node.js" : "^18.17.0"
+```
+
 
 ## 👾 개발 환경
 
