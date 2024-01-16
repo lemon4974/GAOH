@@ -119,7 +119,7 @@ export default function Film({ year, filter }) {
           data.results.map((movie, index) => (
             <div key={index} className="film-grid">
               <div className="img-wrapper image-hover-effect">
-                <Link to={`/films/detail/${movie.id}`}>
+                {/* <Link to={`/films/detail/${movie.id}`}>
                   <img
                     src={
                       movie.backdrop_path || movie.poster_path
@@ -130,7 +130,25 @@ export default function Film({ year, filter }) {
                     }
                     alt={movie.title}
                   />
-                </Link>
+                </Link> */}
+
+                {movie.backdrop_path || movie.poster_path ? (
+                  <Link to={`/films/detail/${movie.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${
+                        movie.backdrop_path || movie.poster_path
+                      }`}
+                      alt={movie.title}
+                    />
+                  </Link>
+                ) : (
+                  <Link to={`/films/detail/${movie.id}`}>
+                    <div className="default-image-background"></div>
+                    <div className="bg-text">
+                      <p>No Image Data</p>
+                    </div>
+                  </Link>
+                )}
               </div>
               <div className="movie-info movie-info-flex">
                 <Link to={`/films/detail/${movie.id}`}>

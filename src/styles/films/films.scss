@@ -190,3 +190,47 @@ input::-webkit-search-results-decoration {
   background-position: right 0px top 70%; // Adjust the position as needed
   background-size: 8px;
 }
+
+.default-image-background {
+  background-image: url('https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg');
+  background-size: cover;
+  /* Add the blur effect */
+  // -webkit-filter: blur(2px);
+  // -moz-filter: blur(2px);
+  // -o-filter: blur(2px);
+  // -ms-filter: blur(2px);
+  filter: blur(1px);
+  // -webkit-filter: blur(2px);
+  /* Full height */
+  height: 100%;
+  width: 100%;
+  // box-sizing: border-box;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+
+  font-weight: bold;
+  // border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.bg-text p {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+}
