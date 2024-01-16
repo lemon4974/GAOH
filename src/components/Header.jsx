@@ -37,12 +37,14 @@ export default function Header() {
         ) : (
           <p>Not logged in</p>
         )} */}
-        <div className="logo">
-          <LocalMoviesIcon />
-          {/* <MovieCreationIcon /> */}
-          {/* <TheaterComedyIcon /> */}
-          <div>GAOH</div>
-        </div>
+        <Link to="films">
+          <div className="logo">
+            <LocalMoviesIcon />
+            {/* <MovieCreationIcon /> */}
+            {/* <TheaterComedyIcon /> */}
+            <div>GAOH</div>
+          </div>
+        </Link>
         <div className="detail-link">
           <Link to="/">
             <div className="link">MAIN</div>
@@ -55,9 +57,9 @@ export default function Header() {
             <div className="link">SEARCH</div>
           </Link>
           {/* <Link to="login"> */}
-          <div className="link" onClick={toggle}>
+          {/* <div className="link" onClick={toggle}>
             Theme
-          </div>
+          </div> */}
           {/* </Link> */}
         </div>
 
